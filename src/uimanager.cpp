@@ -31,8 +31,8 @@ void UIManager::handleClick(int x, int y)
     if (turnController->phase == PLACE) {
         shopController->placeUnit(turnController->getActivePlayer(),mapController->pointToCountry(x,y));
     }
-    if (turnController->phase == ACTION  || true) {	// || true to ensrue we enter here otherwise we are never in action phase
-		moveController->handleClick(x, y);
+    if (turnController->phase == ACTION  || true) {	// || true to ensure we enter here otherwise we are never in action phase
+		moveController->handleClick(x, y, turnController->getActivePlayer() );
     }
 
 

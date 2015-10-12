@@ -9,12 +9,13 @@ class Player {
 public:
   Player();
 
-  bool checkPlayerOwnsCountry(Country * country);
+  bool ownsCountry(Country* country1);
   
   int number;
   int colour;
   int income;
   std::vector<Country*> countries;
+  
 
 };
 #endif
