@@ -14,7 +14,10 @@ public:
   int height;
   int* mask;
   int units;
-  bool highlight;
+  
+  //useful for determining if a country should be clickable
+  bool targetable;
+
   std::vector<Country*> neighbours;
 };
 #endif

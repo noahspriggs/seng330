@@ -10,7 +10,7 @@
 
 class ShopController {
 public:
-  ShopController();
+  ShopController(TurnController* tc);
 
   void placeUnit(Player* placer, Country* country);
 
@@ -18,6 +18,9 @@ public:
 
   MapController* mapController;
   TurnController* turnController;
+
+  enum { MENU, SHOP, PLACE, ACTION };
+
 
 };
 #endif

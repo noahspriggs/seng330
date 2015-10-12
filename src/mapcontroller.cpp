@@ -17,7 +17,7 @@ sf::Texture MapController::getPixels()
         for(int x = 0; x < this->map->getWidth(); x++) 
         {
             //draw highlighted countries
-            if (this->map->getContinents()[y/300]->countries[x/300]->highlight == true) {
+            if (this->map->getContinents()[y/300]->countries[x/300]->targetable == true) {
                 pixels[(y * this->map->getWidth() + x) * 4] = 0x00;
                 pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0x99;
                 pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x77;
