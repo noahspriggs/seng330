@@ -9,6 +9,8 @@ class Player {
 public:
   Player();
 
+  bool checkPlayerOwnsCountry(Country * country);
+  
   int number;
   int colour;
   int income;

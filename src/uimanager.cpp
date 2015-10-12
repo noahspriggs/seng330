@@ -5,6 +5,7 @@ UIManager::UIManager() {
     this->mapController = new MapController();
     this->turnController = new TurnController();
     this->shopController = new ShopController();
+	this->moveController = new MoveController(mapController);
 }
 
 void UIManager::draw(sf::RenderWindow* target) 
@@ -30,12 +31,12 @@ void UIManager::handleClick(int x, int y)
     if (turnController->phase == PLACE) {
         shopController->placeUnit(turnController->getActivePlayer(),mapController->pointToCountry(x,y));
     }
-    if (turnController->phase == ACTION) {
-        //Jesper, I think some of your stuff will go here
+    if (turnController->phase == ACTION  || true) {	// || true to ensrue we enter here otherwise we are never in action phase
+		moveController->handleClick(x, y);
     }
 
 
-    std::cout << "Handled click at " << x << " " << y << std::endl;
+    //std::cout << "Handled click at " << x << " " << y << std::endl;
     
-    std::cout << "Mapped to country p = 0x" << this->mapController->pointToCountry(x, y) << std::endl;
+    //std::cout << "Mapped to country p = 0x" << this->mapController->pointToCountry(x, y) << std::endl;
 }

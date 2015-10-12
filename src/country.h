@@ -9,7 +9,7 @@ public:
   Country();
 
   void addNeighbour(Country* neighbour);
-  
+ 
   int width;
   int height;
   int* mask;

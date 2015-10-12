@@ -4,6 +4,7 @@
 #include "mapcontroller.h"
 #include "turncontroller.h"
 #include "shopcontroller.h"
+#include "movecontroller.h"
 #include <SFML/Graphics.hpp>
 
 
@@ -11,6 +12,7 @@ class UIManager {
   MapController* mapController;
   TurnController* turnController;
   ShopController* shopController;
+  MoveController* moveController;
 public:
   enum { MENU, SHOP, PLACE, ACTION };
 
