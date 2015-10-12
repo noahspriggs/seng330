@@ -16,10 +16,18 @@ sf::Texture MapController::getPixels()
     {
         for(int x = 0; x < this->map->getWidth(); x++) 
         {
-            pixels[(y * this->map->getWidth() + x) * 4] = 0xFF;
-            pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0xFF;
-            pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0xFF;
-            pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
+            //draw highlighted countries
+            if (this->map->getContinents()[y/300]->countries[x/300]->highlight == true) {
+                pixels[(y * this->map->getWidth() + x) * 4] = 0x00;
+                pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0x99;
+                pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x77;
+                pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
+            } else {
+                pixels[(y * this->map->getWidth() + x) * 4] = 0xFF;
+                pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0xFF;
+                pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0xFF;
+                pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
+            }
         }
     }
     

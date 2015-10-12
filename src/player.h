@@ -11,6 +11,7 @@ public:
 
   int number;
   int colour;
+  int income;
   std::vector<Country*> countries;
 
 };

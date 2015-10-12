@@ -14,6 +14,7 @@ public:
   int height;
   int* mask;
   int units;
+  bool highlight;
   std::vector<Country*> neighbours;
 };
 #endif
