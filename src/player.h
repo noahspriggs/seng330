@@ -9,8 +9,9 @@ class Player {
 public:
   Player();
 
-  bool ownsCountry(Country* country1);
-  
+  bool ownsCountry(Country* country);
+  void addCountry(Country* country);
+  void removeCountry(Country* country);
   int number;
   int colour;
   int income;

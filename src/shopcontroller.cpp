@@ -12,7 +12,8 @@ void ShopController::placeUnit(Player* placer, Country* country) {
     if (placer->income > 0) {
         country->units++;
         placer->income--;
-        if (placer->income == 0) {
+        
+		if (placer->income == 0) {
             turnController->phase = ACTION;
             std::cout << "BEGINNING ACTION PHASE" << std::endl;
         }
