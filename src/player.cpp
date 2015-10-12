@@ -4,7 +4,7 @@
 #include <algorithm>
 
 Player::Player() {
-
+    income = -1;
 }
 
 bool Player::ownsCountry(Country* country1){
