@@ -6,6 +6,8 @@
 class Continent {
 public:
   Continent();
+  
+  void addCountry(Country* country);
 
   std::vector<Country*> countries;
 
