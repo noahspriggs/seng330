@@ -22,12 +22,20 @@ int main()
                     uimanager.handleClick(event.mouseButton.x, event.mouseButton.y);
                 }
             }
+            else if(event.type == sf::Event::KeyPressed) 
+            {
+                if(event.key.code == sf::Keyboard::Escape) 
+                {
+                    window.close();
+                }
+            }
                 
         }
 
         window.clear();
         uimanager.draw(&window);
         window.display();
+            
         
         
     }

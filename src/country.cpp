@@ -12,6 +12,7 @@ Country::Country()
             this->mask[y * this->width + x] = 1;
         }
     }
+    highlight = false;
     
 }
 

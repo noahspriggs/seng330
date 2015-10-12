@@ -1,6 +1,7 @@
 #ifndef SHOPCONTROLLER_H
 #define  SHOPCONTROLLER_H
 
+#include "turncontroller.h"
 #include "mapcontroller.h"
 #include "country.h"
 #include "player.h"
@@ -11,11 +12,12 @@ class ShopController {
 public:
   ShopController();
 
-  void placeUnit(Country* country);
+  void placeUnit(Player* placer, Country* country);
 
   int getPlayerIncome(Player* player);
 
-  MapController* mapcontroller;
+  MapController* mapController;
+  TurnController* turnController;
 
 };
 #endif
