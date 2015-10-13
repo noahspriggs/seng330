@@ -4,26 +4,41 @@
 #include <vector>
 
 
-class Country {
-public:
-  Country();
-
-  void addNeighbour(Country* neighbour);
- 
+class Country 
+{
   int width;
   int height;
   int* mask;
   int units;
-
+  
   int xPosition;
   int yPosition;
   
   int centerOffsetX;
   int centerOffsetY;
-  
-  //useful for determining if a country should be clickable
-  bool targetable;
 
   std::vector<Country*> neighbours;
+
+public:
+  Country(int width, int height, int* mask, int xPostition, int yPosition, int centerOffsetX, int centerOffsetY);
+
+  void addNeighbour(Country* neighbour);
+  std::vector<Country*> getNeighbours();
+
+  int getWidth();
+  int getHeight();
+
+  int* getMask();
+
+
+  int getUnits();
+  void setUnits(int units);
+
+  int getXPosition();
+  int getYPosition();
+
+  int getCenterOffsetX();
+  int getCenterOffsetY();
+
 };
 #endif

@@ -1,24 +1,72 @@
 #include "country.h"
 
-Country::Country() 
+Country::Country(int width, int height, int* mask, int xPostition, int yPosition, int centerOffsetX, int centerOffsetY)
 {
-    // for the purposes of the demo, each country is a 300x300 square with no other features
-    this->width = this->height = 300;
+	this->width = width;
+	this->height = height;
+	this->mask = mask;
+
+	this->xPosition = xPosition;
+	this->yPosition = yPosition;
+
+	this->centerOffsetX = centerOffsetX;
+	this->centerOffsetY = centerOffsetY;
+
     this->units = 0;
-	this->centerOffsetX = this->centerOffsetY = 130;
-    
-    this->mask = new int[this->width * this->height];
-    for(int y = 0; y < this->height; y++)  {
-        for(int x = 0; x < this->width; x++) {
-            this->mask[y * this->width + x] = 1;
-        }
-    }
-    targetable = false;
-    
 }
 
 void Country::addNeighbour(Country* neighbour)
 {
     this->neighbours.push_back(neighbour);
+}
+
+std::vector<Country*> Country::getNeighbours()
+{
+	return this->neighbours;
+}
+
+int Country::getWidth()
+{
+	return this->width;
+}
+
+int Country::getHeight()
+{
+	return this->height;
+}
+
+int* Country::getMask()
+{
+	return this->mask;
+}
+
+int Country::getUnits()
+{
+	return this->units;
+}
+
+void Country::setUnits(int units)
+{
+	this->units = units;
+}
+
+int Country::getXPosition()
+{
+	return this->xPosition;
+}
+
+int Country::getYPosition()
+{
+	return this->yPosition;
+}
+
+int Country::getCenterOffsetX()
+{
+	return this->centerOffsetX;
+}
+
+int Country::getCenterOffsetY()
+{
+	return this->centerOffsetY;
 }
 
