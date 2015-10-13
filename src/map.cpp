@@ -7,7 +7,11 @@ Map::Map() {
         Continent* rowContinent = new Continent();
         
         for(int x = 0; x < 3; x++) {
-            rowContinent->addCountry(new Country());
+			Country* newCountry = new Country();
+			newCountry->xPosition = x * 300;
+			newCountry->yPosition = y * 300;
+
+			rowContinent->addCountry(newCountry);
         }
         
         rowContinent->countries[0]->addNeighbour(rowContinent->countries[1]);
