@@ -13,6 +13,9 @@ class UIManager {
   TurnController* turnController;
   ShopController* shopController;
   MoveController* moveController;
+
+  sf::Font textFont;
+
 public:
   enum { MENU, SHOP, PLACE, ACTION };
 

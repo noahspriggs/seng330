@@ -14,6 +14,12 @@ public:
   int height;
   int* mask;
   int units;
+
+  int xPosition;
+  int yPosition;
+  
+  int centerOffsetX;
+  int centerOffsetY;
   
   //useful for determining if a country should be clickable
   bool targetable;
