@@ -19,7 +19,6 @@ public:
   MapController* mapController;
   TurnController* turnController;
 
-  enum { MENU, SHOP, PLACE, ACTION };
 
 
 };

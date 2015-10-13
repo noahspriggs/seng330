@@ -6,20 +6,24 @@
 #include "player.h"
 #include <SFML/Graphics.hpp>
 
+enum Phases { MENU, SHOP, PLACE, ACTION };
+
 
 class TurnController {
 public:
-  TurnController();
+  TurnController(MapController* mc);
 
+  void startGame();
   void endTurn();
 
   Player* getActivePlayer();
 
-  enum { MENU, SHOP, PLACE, ACTION };
   int phase;
 
   int activePlayer;
   std::vector<Player*> playerList;
+
+  MapController* mapController;
 
 };
 #endif

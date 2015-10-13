@@ -14,7 +14,6 @@ class UIManager {
   ShopController* shopController;
   MoveController* moveController;
 public:
-  enum { MENU, SHOP, PLACE, ACTION };
 
   UIManager();
   

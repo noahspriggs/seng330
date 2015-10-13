@@ -3,9 +3,11 @@
 
 UIManager::UIManager() {
     this->mapController = new MapController();
-    this->turnController = new TurnController();
+    this->turnController = new TurnController(mapController);
     this->shopController = new ShopController(turnController);
 	this->moveController = new MoveController(mapController);
+
+    turnController->startGame();
 
 }
 

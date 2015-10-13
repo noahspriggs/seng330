@@ -7,9 +7,8 @@ ShopController::ShopController(TurnController* tc) {
 }
 
 void ShopController::placeUnit(Player* placer, Country* country) {
-    //eventually we will need "&& country->targetable == true"
     //which makes sure the player owns the country in the PLACE phase, but I left it out for debugging
-    if (placer->income > 0) {
+    if (placer->income > 0 && placer->ownsCountry(country)) {
         country->units++;
         placer->income--;
         
