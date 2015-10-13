@@ -7,10 +7,10 @@ Player::Player() {
     income = -1;
 }
 
-bool Player::ownsCountry(Country* country1){
+bool Player::ownsCountry(Country* country){
  	
 	// Check country in countries
-	if ( std::find(countries.begin(), countries.end(), country1) != countries.end() ){
+	if ( std::find(countries.begin(), countries.end(), country) != countries.end() ){
 		//std::cout << "Player owns country" << std::endl;
 		return true;
 	}else {
@@ -26,7 +26,7 @@ void Player::addCountry(Country* country){
 }
 
 void Player::removeCountry(Country* country){
-
+	countries.erase(std::remove(countries.begin(), countries.end(), country), countries.end());
 }
 
 

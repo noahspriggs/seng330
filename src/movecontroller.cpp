@@ -28,7 +28,7 @@ void MoveController::handleClick(int x, int y, Player * player)
 		country = clicked;
 		arrowsDisplayed = true;
 		 std::cout << "Selected New Country" << std::endl;
-		 
+
 	//Case: No Current country selected, select country if player owns
 	} else if ( !arrowsDisplayed && player->ownsCountry(clicked) )  {
 
@@ -49,9 +49,9 @@ void MoveController::handleClick(int x, int y, Player * player)
 	}else {
 		std::cout << "Select A country you own to Move your units" << std::endl;
 	}
-	
-	
-	
+
+
+
 
 }
 
@@ -115,10 +115,10 @@ void MoveController::handleAttack(Country * country1, Country* country2, Player*
 
 		// ----REMOVE Country2 from previous owner-----
 		//TODO find owner of (country2)   otherPlayer.removeCountry(country2);
-		
+
 		// -- Add Country ownership to player --
 		player->addCountry(country2);
-		
+
 		country1->units = 1;
 
 	}else {
