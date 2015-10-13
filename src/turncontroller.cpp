@@ -14,7 +14,9 @@ TurnController::TurnController(MapController* mc) {
 
 void TurnController::startGame() {
     playerList[0]->countries.push_back(mapController->map->getContinents()[0]->countries[0]);
+    mapController->map->getContinents()[0]->countries[0]->units = 1;
     playerList[1]->countries.push_back(mapController->map->getContinents()[2]->countries[2]);
+    mapController->map->getContinents()[2]->countries[2]->units = 1;
 }
 
 void TurnController::endTurn() {
