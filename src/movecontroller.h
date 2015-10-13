@@ -23,7 +23,7 @@ public:
 	void handleMove(Country * country1, Country* country2,Player * player);
 	void handleMerge(Country * country1, Country* country2);
 	void handleAttack(Country * country1, Country* country2, Player* player);
-
+	void deSelect();
  
  
  

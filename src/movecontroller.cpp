@@ -39,14 +39,14 @@ void MoveController::handleClick(int x, int y, Player * player)
 
 	//Case: UN-Select selected country
 	} else if ( arrowsDisplayed && clicked == country ){
-		std::cout << "DE-Selected Country" << std::endl;
-		arrowsDisplayed = false;
-		country = NULL;
+		// Deselect
+		deSelect();
 
 	//Case: Selected country not the same as clicked: IE could be a merge or an attack
 	}else if ( arrowsDisplayed && clicked != country){
 		std::cout << "handleMove" << std::endl;
 		handleMove(country, clicked, player);
+		
 	}else {
 		std::cout << "Select A country you own to Move your units" << std::endl;
 	}
@@ -78,11 +78,16 @@ void MoveController::handleMove(Country * country1, Country* country2, Player * 
 
 		// Merge
 		handleMerge(country1, country2);
-
+		// Deselect
+		deSelect();
+		
 	} else {	//  player does not own 2
 
 		// Attack
 		handleAttack(country1, country2, player);
+		
+		// Deselect
+		deSelect();
 	}
 }
 
@@ -132,8 +137,11 @@ void MoveController::handleAttack(Country * country1, Country* country2, Player*
 	}else {
 		std::cout << "To Few units to attack" << std::endl;
 	}
-
-
-
 }
 
+void MoveController::deSelect(){
+		std::cout << "DE-Selected Country" << std::endl;
+		arrowsDisplayed = false;
+		country = NULL;
+
+}
