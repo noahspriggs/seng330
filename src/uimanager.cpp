@@ -31,7 +31,7 @@ void UIManager::draw(sf::RenderWindow* target)
 	sf::Text unitCountText;
 	unitCountText.setFont(this->textFont);
 	unitCountText.setCharacterSize(24);
-	unitCountText.setColor(sf::Color::Black);
+	unitCountText.setColor(sf::Color::Magenta);
 	unitCountText.setStyle(sf::Text::Regular);
 
 	for (int c = 0; c < this->mapController->map->getContinents().size(); c++) {
@@ -40,13 +40,13 @@ void UIManager::draw(sf::RenderWindow* target)
 		for (int cu = 0; cu < continent->countries.size(); cu++) {
 			Country* country = continent->countries[cu];
 
-			int xPos = country->xPosition + country->centerOffsetX;
-			int yPos = country->yPosition + country->centerOffsetY;
+			int xPos = country->getXPosition() + country->getCenterOffsetX();
+			int yPos = country->getYPosition() + country->getCenterOffsetY();
 
 			unitCountText.setPosition(xPos, yPos);
 
 			std::stringstream ss;
-			ss << country->units;
+			ss << country->getUnits();
 			unitCountText.setString(ss.str().c_str());
 
 			target->draw(unitCountText);

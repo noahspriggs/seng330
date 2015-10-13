@@ -1,6 +1,6 @@
 #include "country.h"
 
-Country::Country(int width, int height, int* mask, int xPostition, int yPosition, int centerOffsetX, int centerOffsetY)
+Country::Country(int width, int height, int* mask, int xPosition, int yPosition, int centerOffsetX, int centerOffsetY)
 {
 	this->width = width;
 	this->height = height;

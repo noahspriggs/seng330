@@ -14,7 +14,7 @@ void ShopController::placeUnit(Player* placer, Country* country) {
     }
 
     if (placer->income > 0 && placer->ownsCountry(country)) {
-        country->units++;
+        country->setUnits(country->getUnits() + 1);
         placer->income--;
         
 		if (placer->income == 0) {

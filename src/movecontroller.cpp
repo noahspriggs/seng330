@@ -63,7 +63,9 @@ bool MoveController::handleArrowClick(int x, int y){
 void MoveController::handleMove(Country * country1, Country* country2, Player * player){
 
 	// Check country's are adjacent
-	if ( std::find(country1->neighbours.begin(), country1->neighbours.end(), country2) != country1->neighbours.end() ){
+	std::vector<Country*> country1Neighbours = country1->getNeighbours();
+
+	if ( std::find(country1Neighbours.begin(), country1Neighbours.end(), country2) != country1Neighbours.end() ){
 		std::cout << "Countries are adjacent: move possible" << std::endl;
 	}else {
 		std::cout << "Countries are not adjacent: Move NOT possible" << std::endl;
@@ -87,11 +89,11 @@ void MoveController::handleMerge(Country * country1, Country* country2){
 
 	//For phase2 Disallow moving last unit from a country
 	//For phase2 moves all but last unit
-	if ( country1->units > 1) {
-		country2->units += country1->units -1;
-		std::cout << "Moved " << country1->units -1 << " units"  << std::endl;
+	if ( country1->getUnits() > 1) {
+		country2->setUnits(country1->getUnits() - 1);
+		std::cout << "Moved " << country1->getUnits() - 1 << " units"  << std::endl;
 
-		country1->units = 1;
+		country1->setUnits(1);
 
 
 	}else {
@@ -106,12 +108,12 @@ void MoveController::handleAttack(Country * country1, Country* country2, Player*
 	//For phase2 only allow attack if you will window
 	//For phase2 its 1-1 kill ratio
 
-	if ( country1->units > 1 && country1->units - 1 > country2->units ) {
+	if ( country1->getUnits() > 1 && country1->getUnits() - 1 > country2->getUnits()) {
 
-		country1->units -= country2->units;
-		country2->units = country1->units - 1;
+		country1->setUnits(country1->getUnits() - country2->getUnits());
+		country2->setUnits(country1->getUnits() - 1);
 
-		std::cout << "Attack succeeded moved " << country2->units << " into your new country" << std::endl;
+		std::cout << "Attack succeeded moved " << country2->getUnits() << " into your new country" << std::endl;
 
 		// ----REMOVE Country2 from previous owner-----
 		//TODO find owner of (country2)   otherPlayer.removeCountry(country2);
@@ -119,7 +121,7 @@ void MoveController::handleAttack(Country * country1, Country* country2, Player*
 		// -- Add Country ownership to player --
 		player->addCountry(country2);
 
-		country1->units = 1;
+		country1->setUnits(1);
 
 	}else {
 		std::cout << "To Few units to attack" << std::endl;

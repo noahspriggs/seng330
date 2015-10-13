@@ -20,7 +20,7 @@ class Country
   std::vector<Country*> neighbours;
 
 public:
-  Country(int width, int height, int* mask, int xPostition, int yPosition, int centerOffsetX, int centerOffsetY);
+  Country(int width, int height, int* mask, int xPosition, int yPosition, int centerOffsetX, int centerOffsetY);
 
   void addNeighbour(Country* neighbour);
   std::vector<Country*> getNeighbours();

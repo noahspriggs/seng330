@@ -3,15 +3,18 @@
 
 Map::Map() {
     
+	int* mask = new int[300 * 300];
+	for (int y = 0; y < 300; y++) {
+		for (int x = 0; x < 300; x++) {
+			mask[y * 300 + x] = 1;
+		}
+	}
+
     for(int y = 0; y < 3; y++) {
         Continent* rowContinent = new Continent();
         
         for(int x = 0; x < 3; x++) {
-			Country* newCountry = new Country();
-			newCountry->xPosition = x * 300;
-			newCountry->yPosition = y * 300;
-
-			rowContinent->addCountry(newCountry);
+			rowContinent->addCountry(new Country(300, 300, mask, x * 300, y * 300, 130, 130));
         }
         
         rowContinent->countries[0]->addNeighbour(rowContinent->countries[1]);
