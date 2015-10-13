@@ -7,7 +7,12 @@ ShopController::ShopController(TurnController* tc) {
 }
 
 void ShopController::placeUnit(Player* placer, Country* country) {
-    //which makes sure the player owns the country in the PLACE phase, but I left it out for debugging
+    Player* activePlayer = turnController->getActivePlayer();
+    //if the income is -1 then turncontroller just reset the turn so we need a new income
+    if(activePlayer->income == -1) {
+        activePlayer->income = getPlayerIncome(activePlayer);
+    }
+
     if (placer->income > 0 && placer->ownsCountry(country)) {
         country->units++;
         placer->income--;

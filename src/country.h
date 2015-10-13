@@ -21,9 +21,6 @@ public:
   int centerOffsetX;
   int centerOffsetY;
   
-  //useful for determining if a country should be clickable
-  bool targetable;
-
   std::vector<Country*> neighbours;
 };
 #endif

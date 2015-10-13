@@ -13,7 +13,6 @@ Country::Country()
             this->mask[y * this->width + x] = 1;
         }
     }
-    targetable = false;
     
 }
 
