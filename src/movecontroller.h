@@ -2,14 +2,16 @@
 #define  MOVECONTROLLER_H
 
 #include "mapcontroller.h"
+#include "turncontroller.h"
 #include "player.h"
 #include <SFML/Graphics.hpp>
 
 
 class MoveController {
   MapController* mapController;
+  TurnController* turnController;
 public:
-  MoveController(MapController* mapController);
+  MoveController(MapController* mapController, TurnController* tc);
   
   void draw(sf::RenderWindow* target);
   
@@ -27,6 +29,7 @@ public:
  
 	bool arrowsDisplayed;
 	Country * country;
+
 
 };
 #endif

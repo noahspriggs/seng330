@@ -1,7 +1,8 @@
 #include "movecontroller.h"
 #include <iostream>
 
-MoveController::MoveController(MapController* mapController) {
+MoveController::MoveController(MapController* mapController, TurnController* tc) {
+	this->turnController = tc;
     this->mapController =  mapController;
 	this->arrowsDisplayed = false;
 	this->country = NULL;
@@ -90,7 +91,7 @@ void MoveController::handleMerge(Country * country1, Country* country2){
 	//For phase2 Disallow moving last unit from a country
 	//For phase2 moves all but last unit
 	if ( country1->getUnits() > 1) {
-		country2->setUnits(country1->getUnits() - 1);
+		country2->setUnits(country2->getUnits() + country1->getUnits() - 1);
 		std::cout << "Moved " << country1->getUnits() - 1 << " units"  << std::endl;
 
 		country1->setUnits(1);
@@ -117,6 +118,11 @@ void MoveController::handleAttack(Country * country1, Country* country2, Player*
 
 		// ----REMOVE Country2 from previous owner-----
 		//TODO find owner of (country2)   otherPlayer.removeCountry(country2);
+		for(int i = 0;i<turnController->playerList.size();i++) {
+			if(turnController->playerList[i]->ownsCountry(country2)) {
+				turnController->playerList[i]->removeCountry(country2);
+			}
+		}
 
 		// -- Add Country ownership to player --
 		player->addCountry(country2);

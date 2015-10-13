@@ -8,7 +8,7 @@ UIManager::UIManager() {
     this->turnController = new TurnController(mapController);
     this->mapController->turnController = this->turnController;
     this->shopController = new ShopController(turnController);
-	this->moveController = new MoveController(mapController);
+	this->moveController = new MoveController(mapController,turnController);
 
     turnController->startGame();
 	if (!this->textFont.loadFromFile("caladea-regular.ttf")) {
@@ -68,4 +68,8 @@ void UIManager::handleClick(int x, int y)
 
     //std::cout << "Handled click at " << x << " " << y << std::endl;
     //std::cout << "Mapped to country p = 0x" << this->mapController->pointToCountry(x, y) << std::endl;
+}
+
+void UIManager::handleEsc() {
+    turnController->endTurn();
 }

@@ -20,9 +20,10 @@ public:
 
   UIManager();
   
+
   void draw(sf::RenderWindow* target);
   
   void handleClick(int x, int y);
-
+  void handleEsc();
 };
 #endif
