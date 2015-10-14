@@ -11,9 +11,12 @@ class MapController {
 public:
   MapController();
 
+  void update();
   sf::Texture getPixels();
   Country* pointToCountry(int x, int y);
+  sf::Texture getMapTexture();
 
+  sf::Texture mapTexture;
   Map* map;
   TurnController* turnController;
 };

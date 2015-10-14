@@ -13,11 +13,11 @@ MoveController::MoveController(MapController* mapController, TurnController* tc)
 void MoveController::draw(sf::RenderWindow* target)
 {
 // Draw arrows
-    sf::Sprite mapSprite;
-    sf::Texture tex = this->mapController->getPixels();
-    mapSprite.setTexture(tex);
+    // sf::Sprite mapSprite;
+    // sf::Texture tex = this->mapController->getPixels();
+    // mapSprite.setTexture(tex);
 
-    target->draw(mapSprite);
+    // target->draw(mapSprite);
 }
 
 void MoveController::handleClick(int x, int y, Player * player)
@@ -89,6 +89,9 @@ void MoveController::handleMove(Country * country1, Country* country2, Player * 
 		// Deselect
 		deSelect();
 	}
+
+	//THIS METHOD IS REALLY SLOW
+	mapController->update();
 }
 
 void MoveController::handleMerge(Country * country1, Country* country2){

@@ -21,7 +21,8 @@ void UIManager::draw(sf::RenderWindow* target)
 {
     
     sf::Sprite mapSprite;
-    sf::Texture tex = this->mapController->getPixels();
+    // this->mapController->update();
+    sf::Texture tex = this->mapController->getMapTexture();
     mapSprite.setTexture(tex);
     
     target->draw(mapSprite);
@@ -56,6 +57,7 @@ void UIManager::draw(sf::RenderWindow* target)
   
 void UIManager::handleClick(int x, int y)
 {
+    // mapController->update();
     //depending on the current turn phase, do different things on mouse click
     Player* activePlayer = turnController->getActivePlayer();
     if (turnController->phase == PLACE) {

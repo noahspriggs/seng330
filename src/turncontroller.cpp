@@ -17,6 +17,7 @@ void TurnController::startGame() {
     mapController->map->getContinents()[0]->countries[0]->setUnits(1);
     playerList[1]->addCountry(mapController->map->getContinents()[2]->countries[2]);
     mapController->map->getContinents()[2]->countries[2]->setUnits(1);
+    mapController->update();
 }
 
 void TurnController::endTurn() {
