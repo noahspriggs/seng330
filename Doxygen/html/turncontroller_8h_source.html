@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Seng330 Risk: src/turncontroller.h Source File</title>
+<title>Seng330 Risk: C:/Users/Anthony/Documents/seng330/src/turncontroller.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -97,30 +97,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;player.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">enum</span> Phases { MENU, SHOP, PLACE, ACTION };</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_turn_controller.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_turn_controller.html">TurnController</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <a class="code" href="class_turn_controller.html">TurnController</a>(<a class="code" href="class_map_controller.html">MapController</a>* mc);</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">enum</span> Phases { MENU, SHOP, PLACE, ACTION }; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_turn_controller.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_turn_controller.html">TurnController</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">void</span> startGame();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keywordtype">void</span> endTurn();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="class_player.html">Player</a>* getActivePlayer();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">int</span> phase;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">int</span> activePlayer;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  std::vector&lt;Player*&gt; playerList;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="class_map_controller.html">MapController</a>* mapController;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="class_turn_controller.html#aa9e4a3c63544a55349a11c49f5a27d92">TurnController</a>(<a class="code" href="class_map_controller.html">MapController</a>* mc);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_turn_controller.html#af0bf05ca649fe7b08a6fee6f7d0f4594">startGame</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_turn_controller.html#accc451d934fd5983486182ecf2c5e86a">endTurn</a>();</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_turn_controller_html"><div class="ttname"><a href="class_turn_controller.html">TurnController</a></div><div class="ttdef"><b>Definition:</b> turncontroller.h:12</div></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="class_player.html">Player</a>* <a class="code" href="class_turn_controller.html#a7facfb08df4a5bc9eef6af8eb4debc46">getActivePlayer</a>(); </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_turn_controller.html#a0e38c2319d233f54fe0a5daaa5fef964">   34</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_turn_controller.html#a0e38c2319d233f54fe0a5daaa5fef964">phase</a>; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_turn_controller.html#a074a5d90344a9690c31d768402acab94">   36</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_turn_controller.html#a074a5d90344a9690c31d768402acab94">activePlayer</a>; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_turn_controller.html#a4f25fffc1441f66610f2ba821ac77d36">   37</a></span>&#160;  std::vector&lt;Player*&gt; <a class="code" href="class_turn_controller.html#a4f25fffc1441f66610f2ba821ac77d36">playerList</a>;  </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_turn_controller.html#a84dd17d08a15c3028d19491c1926455d">   39</a></span>&#160;  <a class="code" href="class_map_controller.html">MapController</a>* <a class="code" href="class_turn_controller.html#a84dd17d08a15c3028d19491c1926455d">mapController</a>; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_turn_controller_html_a4f25fffc1441f66610f2ba821ac77d36"><div class="ttname"><a href="class_turn_controller.html#a4f25fffc1441f66610f2ba821ac77d36">TurnController::playerList</a></div><div class="ttdeci">std::vector&lt; Player * &gt; playerList</div><div class="ttdef"><b>Definition:</b> turncontroller.h:37</div></div>
+<div class="ttc" id="class_turn_controller_html"><div class="ttname"><a href="class_turn_controller.html">TurnController</a></div><div class="ttdef"><b>Definition:</b> turncontroller.h:13</div></div>
+<div class="ttc" id="class_turn_controller_html_af0bf05ca649fe7b08a6fee6f7d0f4594"><div class="ttname"><a href="class_turn_controller.html#af0bf05ca649fe7b08a6fee6f7d0f4594">TurnController::startGame</a></div><div class="ttdeci">void startGame()</div><div class="ttdoc">Sets up the game, assigning Player&#39;s their initial Countries and. </div><div class="ttdef"><b>Definition:</b> turncontroller.cpp:15</div></div>
+<div class="ttc" id="class_turn_controller_html_a7facfb08df4a5bc9eef6af8eb4debc46"><div class="ttname"><a href="class_turn_controller.html#a7facfb08df4a5bc9eef6af8eb4debc46">TurnController::getActivePlayer</a></div><div class="ttdeci">Player * getActivePlayer()</div><div class="ttdoc">Access Method, used by outside classes to get identify the active player. </div><div class="ttdef"><b>Definition:</b> turncontroller.cpp:31</div></div>
+<div class="ttc" id="class_turn_controller_html_a074a5d90344a9690c31d768402acab94"><div class="ttname"><a href="class_turn_controller.html#a074a5d90344a9690c31d768402acab94">TurnController::activePlayer</a></div><div class="ttdeci">int activePlayer</div><div class="ttdef"><b>Definition:</b> turncontroller.h:36</div></div>
+<div class="ttc" id="class_turn_controller_html_a84dd17d08a15c3028d19491c1926455d"><div class="ttname"><a href="class_turn_controller.html#a84dd17d08a15c3028d19491c1926455d">TurnController::mapController</a></div><div class="ttdeci">MapController * mapController</div><div class="ttdef"><b>Definition:</b> turncontroller.h:39</div></div>
 <div class="ttc" id="class_map_controller_html"><div class="ttname"><a href="class_map_controller.html">MapController</a></div><div class="ttdef"><b>Definition:</b> mapcontroller.h:10</div></div>
 <div class="ttc" id="class_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdef"><b>Definition:</b> player.h:8</div></div>
+<div class="ttc" id="class_turn_controller_html_accc451d934fd5983486182ecf2c5e86a"><div class="ttname"><a href="class_turn_controller.html#accc451d934fd5983486182ecf2c5e86a">TurnController::endTurn</a></div><div class="ttdeci">void endTurn()</div><div class="ttdoc">Ends the activePlayer turn, and begins the next players. </div><div class="ttdef"><b>Definition:</b> turncontroller.cpp:23</div></div>
+<div class="ttc" id="class_turn_controller_html_aa9e4a3c63544a55349a11c49f5a27d92"><div class="ttname"><a href="class_turn_controller.html#aa9e4a3c63544a55349a11c49f5a27d92">TurnController::TurnController</a></div><div class="ttdeci">TurnController(MapController *mc)</div><div class="ttdoc">Creation Method taking two arguments. </div><div class="ttdef"><b>Definition:</b> turncontroller.cpp:5</div></div>
+<div class="ttc" id="class_turn_controller_html_a0e38c2319d233f54fe0a5daaa5fef964"><div class="ttname"><a href="class_turn_controller.html#a0e38c2319d233f54fe0a5daaa5fef964">TurnController::phase</a></div><div class="ttdeci">int phase</div><div class="ttdef"><b>Definition:</b> turncontroller.h:34</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,38 +1,90 @@
 \hypertarget{class_turn_controller}{}\section{Turn\+Controller Class Reference}
 \label{class_turn_controller}\index{Turn\+Controller@{Turn\+Controller}}
+
+
+{\ttfamily \#include $<$turncontroller.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_turn_controller_aa9e4a3c63544a55349a11c49f5a27d92}{}{\bfseries Turn\+Controller} (\hyperlink{class_map_controller}{Map\+Controller} $\ast$mc)\label{class_turn_controller_aa9e4a3c63544a55349a11c49f5a27d92}
+\hyperlink{class_turn_controller_aa9e4a3c63544a55349a11c49f5a27d92}{Turn\+Controller} (\hyperlink{class_map_controller}{Map\+Controller} $\ast$mc)
+\begin{DoxyCompactList}\small\item\em Creation Method taking two arguments. \end{DoxyCompactList}\item 
+\hypertarget{class_turn_controller_af0bf05ca649fe7b08a6fee6f7d0f4594}{}void \hyperlink{class_turn_controller_af0bf05ca649fe7b08a6fee6f7d0f4594}{start\+Game} ()\label{class_turn_controller_af0bf05ca649fe7b08a6fee6f7d0f4594}
 
-\item 
-\hypertarget{class_turn_controller_af0bf05ca649fe7b08a6fee6f7d0f4594}{}void {\bfseries start\+Game} ()\label{class_turn_controller_af0bf05ca649fe7b08a6fee6f7d0f4594}
+\begin{DoxyCompactList}\small\item\em Sets up the game, assigning \hyperlink{class_player}{Player}\textquotesingle{}s their initial Countries and. \end{DoxyCompactList}\item 
+\hypertarget{class_turn_controller_accc451d934fd5983486182ecf2c5e86a}{}void \hyperlink{class_turn_controller_accc451d934fd5983486182ecf2c5e86a}{end\+Turn} ()\label{class_turn_controller_accc451d934fd5983486182ecf2c5e86a}
 
-\item 
-\hypertarget{class_turn_controller_accc451d934fd5983486182ecf2c5e86a}{}void {\bfseries end\+Turn} ()\label{class_turn_controller_accc451d934fd5983486182ecf2c5e86a}
-
-\item 
-\hypertarget{class_turn_controller_a7facfb08df4a5bc9eef6af8eb4debc46}{}\hyperlink{class_player}{Player} $\ast$ {\bfseries get\+Active\+Player} ()\label{class_turn_controller_a7facfb08df4a5bc9eef6af8eb4debc46}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Ends the active\+Player turn, and begins the next players. \end{DoxyCompactList}\item 
+\hyperlink{class_player}{Player} $\ast$ \hyperlink{class_turn_controller_a7facfb08df4a5bc9eef6af8eb4debc46}{get\+Active\+Player} ()
+\begin{DoxyCompactList}\small\item\em Access Method, used by outside classes to get identify the active player. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_turn_controller_a0e38c2319d233f54fe0a5daaa5fef964}{}int {\bfseries phase}\label{class_turn_controller_a0e38c2319d233f54fe0a5daaa5fef964}
-
+int \hyperlink{class_turn_controller_a0e38c2319d233f54fe0a5daaa5fef964}{phase}
 \item 
-\hypertarget{class_turn_controller_a074a5d90344a9690c31d768402acab94}{}int {\bfseries active\+Player}\label{class_turn_controller_a074a5d90344a9690c31d768402acab94}
-
+int \hyperlink{class_turn_controller_a074a5d90344a9690c31d768402acab94}{active\+Player}
 \item 
-\hypertarget{class_turn_controller_a4f25fffc1441f66610f2ba821ac77d36}{}std\+::vector$<$ \hyperlink{class_player}{Player} $\ast$ $>$ {\bfseries player\+List}\label{class_turn_controller_a4f25fffc1441f66610f2ba821ac77d36}
-
+std\+::vector$<$ \hyperlink{class_player}{Player} $\ast$ $>$ \hyperlink{class_turn_controller_a4f25fffc1441f66610f2ba821ac77d36}{player\+List}
 \item 
-\hypertarget{class_turn_controller_a84dd17d08a15c3028d19491c1926455d}{}\hyperlink{class_map_controller}{Map\+Controller} $\ast$ {\bfseries map\+Controller}\label{class_turn_controller_a84dd17d08a15c3028d19491c1926455d}
-
+\hyperlink{class_map_controller}{Map\+Controller} $\ast$ \hyperlink{class_turn_controller_a84dd17d08a15c3028d19491c1926455d}{map\+Controller}
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+\hyperlink{class_turn_controller}{Turn\+Controller} is the class that controls which player is currently playing, and what phases the game is in. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_turn_controller_aa9e4a3c63544a55349a11c49f5a27d92}{}\index{Turn\+Controller@{Turn\+Controller}!Turn\+Controller@{Turn\+Controller}}
+\index{Turn\+Controller@{Turn\+Controller}!Turn\+Controller@{Turn\+Controller}}
+\subsubsection[{Turn\+Controller(\+Map\+Controller $\ast$mc)}]{\setlength{\rightskip}{0pt plus 5cm}Turn\+Controller\+::\+Turn\+Controller (
+\begin{DoxyParamCaption}
+\item[{{\bf Map\+Controller} $\ast$}]{mc}
+\end{DoxyParamCaption}
+)}\label{class_turn_controller_aa9e4a3c63544a55349a11c49f5a27d92}
+
+
+Creation Method taking two arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mc} & an pointer argument used to access the \hyperlink{class_map_controller}{Map\+Controller} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_turn_controller_a7facfb08df4a5bc9eef6af8eb4debc46}{}\index{Turn\+Controller@{Turn\+Controller}!get\+Active\+Player@{get\+Active\+Player}}
+\index{get\+Active\+Player@{get\+Active\+Player}!Turn\+Controller@{Turn\+Controller}}
+\subsubsection[{get\+Active\+Player()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player} $\ast$ Turn\+Controller\+::get\+Active\+Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_turn_controller_a7facfb08df4a5bc9eef6af8eb4debc46}
+
+
+Access Method, used by outside classes to get identify the active player. 
+
+\begin{DoxyReturn}{Returns}
+a pointer to the active \hyperlink{class_player}{Player} 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_turn_controller_a074a5d90344a9690c31d768402acab94}{}\index{Turn\+Controller@{Turn\+Controller}!active\+Player@{active\+Player}}
+\index{active\+Player@{active\+Player}!Turn\+Controller@{Turn\+Controller}}
+\subsubsection[{active\+Player}]{\setlength{\rightskip}{0pt plus 5cm}int Turn\+Controller\+::active\+Player}\label{class_turn_controller_a074a5d90344a9690c31d768402acab94}
+An integer storing the game\textquotesingle{}s active\+Player\textquotesingle{}s index \hypertarget{class_turn_controller_a84dd17d08a15c3028d19491c1926455d}{}\index{Turn\+Controller@{Turn\+Controller}!map\+Controller@{map\+Controller}}
+\index{map\+Controller@{map\+Controller}!Turn\+Controller@{Turn\+Controller}}
+\subsubsection[{map\+Controller}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map\+Controller}$\ast$ Turn\+Controller\+::map\+Controller}\label{class_turn_controller_a84dd17d08a15c3028d19491c1926455d}
+An point to \hyperlink{class_map_controller}{Map\+Controller} used for access \hypertarget{class_turn_controller_a0e38c2319d233f54fe0a5daaa5fef964}{}\index{Turn\+Controller@{Turn\+Controller}!phase@{phase}}
+\index{phase@{phase}!Turn\+Controller@{Turn\+Controller}}
+\subsubsection[{phase}]{\setlength{\rightskip}{0pt plus 5cm}int Turn\+Controller\+::phase}\label{class_turn_controller_a0e38c2319d233f54fe0a5daaa5fef964}
+An integer storing the game\textquotesingle{}s current phase \hypertarget{class_turn_controller_a4f25fffc1441f66610f2ba821ac77d36}{}\index{Turn\+Controller@{Turn\+Controller}!player\+List@{player\+List}}
+\index{player\+List@{player\+List}!Turn\+Controller@{Turn\+Controller}}
+\subsubsection[{player\+List}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Player}$\ast$$>$ Turn\+Controller\+::player\+List}\label{class_turn_controller_a4f25fffc1441f66610f2ba821ac77d36}
+A vector storing the game\textquotesingle{}s Players 
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/turncontroller.\+h\item 
-src/turncontroller.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Users/\+Anthony/\+Documents/seng330/src/turncontroller.\+h\item 
+C\+:/\+Users/\+Anthony/\+Documents/seng330/src/turncontroller.\+cpp\end{DoxyCompactItemize}

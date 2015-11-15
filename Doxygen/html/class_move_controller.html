@@ -64,6 +64,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -89,22 +90,129 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">MoveController Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="movecontroller_8h_source.html">movecontroller.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adf3b8449aa76810b59d7fc79b99c6317"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf3b8449aa76810b59d7fc79b99c6317"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MoveController</b> (<a class="el" href="class_map_controller.html">MapController</a> *mapController, <a class="el" href="class_turn_controller.html">TurnController</a> *tc)</td></tr>
+<tr class="memitem:adf3b8449aa76810b59d7fc79b99c6317"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_move_controller.html#adf3b8449aa76810b59d7fc79b99c6317">MoveController</a> (<a class="el" href="class_map_controller.html">MapController</a> *mapController, <a class="el" href="class_turn_controller.html">TurnController</a> *tc)</td></tr>
+<tr class="memdesc:adf3b8449aa76810b59d7fc79b99c6317"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creation Method taking two arguments.  <a href="#adf3b8449aa76810b59d7fc79b99c6317">More...</a><br /></td></tr>
 <tr class="separator:adf3b8449aa76810b59d7fc79b99c6317"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a409253aac50aa25591f7189f7ba370f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a409253aac50aa25591f7189f7ba370f0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (sf::RenderWindow *target)</td></tr>
+<tr class="memitem:a409253aac50aa25591f7189f7ba370f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_move_controller.html#a409253aac50aa25591f7189f7ba370f0">draw</a> (sf::RenderWindow *target)</td></tr>
+<tr class="memdesc:a409253aac50aa25591f7189f7ba370f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">CURRENTLY UNUSED, method may be used in the future to allow <a class="el" href="class_move_controller.html">MoveController</a> to update the RenderWindow.  <a href="#a409253aac50aa25591f7189f7ba370f0">More...</a><br /></td></tr>
 <tr class="separator:a409253aac50aa25591f7189f7ba370f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6de846ed248aa533a8e5c57a40dee442"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6de846ed248aa533a8e5c57a40dee442"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>handleClick</b> (int x, int y, <a class="el" href="class_player.html">Player</a> *player)</td></tr>
+<tr class="memitem:a6de846ed248aa533a8e5c57a40dee442"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_move_controller.html#a6de846ed248aa533a8e5c57a40dee442">handleClick</a> (int x, int y, <a class="el" href="class_player.html">Player</a> *player)</td></tr>
+<tr class="memdesc:a6de846ed248aa533a8e5c57a40dee442"><td class="mdescLeft">&#160;</td><td class="mdescRight">Action method, handles user input.  <a href="#a6de846ed248aa533a8e5c57a40dee442">More...</a><br /></td></tr>
 <tr class="separator:a6de846ed248aa533a8e5c57a40dee442"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_move_controller.html">MoveController</a> is the class that controls movement functionality. It does the work for moving an army to an adjacent country. This includes handling attacks and merges. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="adf3b8449aa76810b59d7fc79b99c6317"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MoveController::MoveController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_map_controller.html">MapController</a> *&#160;</td>
+          <td class="paramname"><em>mapController</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_turn_controller.html">TurnController</a> *&#160;</td>
+          <td class="paramname"><em>tc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creation Method taking two arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mapController</td><td>an pointer argument used to access the <a class="el" href="class_map_controller.html">MapController</a> </td></tr>
+    <tr><td class="paramname">tc</td><td>an pointer argument used to access the <a class="el" href="class_turn_controller.html">TurnController</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a409253aac50aa25591f7189f7ba370f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MoveController::draw </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow *&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>CURRENTLY UNUSED, method may be used in the future to allow <a class="el" href="class_move_controller.html">MoveController</a> to update the RenderWindow. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>an pointer argument may be used to access the RenderWindow </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6de846ed248aa533a8e5c57a40dee442"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MoveController::handleClick </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Action method, handles user input. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>an integer point on the x-axis of a user click </td></tr>
+    <tr><td class="paramname">y</td><td>an integer point on the y-axis of a user click </td></tr>
+    <tr><td class="paramname">player</td><td>an pointer to the <a class="el" href="class_player.html">Player</a> who did the click </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="movecontroller_8h_source.html">movecontroller.h</a></li>
-<li>src/movecontroller.cpp</li>
+<li>C:/Users/Anthony/Documents/seng330/src/<a class="el" href="movecontroller_8h_source.html">movecontroller.h</a></li>
+<li>C:/Users/Anthony/Documents/seng330/src/movecontroller.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

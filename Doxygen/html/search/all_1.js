@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['map',['Map',['../class_map.html',1,'']]],
-  ['mapcontroller',['MapController',['../class_map_controller.html',1,'']]],
-  ['movecontroller',['MoveController',['../class_move_controller.html',1,'']]]
+  ['continent',['Continent',['../class_continent.html',1,'']]],
+  ['country',['Country',['../class_country.html',1,'']]]
 ];

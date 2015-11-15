@@ -57,10 +57,6 @@ void MoveController::handleClick(int x, int y, Player * player)
 }
 
 
-bool MoveController::handleArrowClick(int x, int y){
-	return false;
-}
-
 void MoveController::handleMove(Country * country1, Country* country2, Player * player){
 
 	// Check country's are adjacent

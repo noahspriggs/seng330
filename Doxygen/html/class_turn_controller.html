@@ -64,6 +64,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -90,40 +91,139 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">TurnController Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="turncontroller_8h_source.html">turncontroller.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa9e4a3c63544a55349a11c49f5a27d92"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9e4a3c63544a55349a11c49f5a27d92"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TurnController</b> (<a class="el" href="class_map_controller.html">MapController</a> *mc)</td></tr>
+<tr class="memitem:aa9e4a3c63544a55349a11c49f5a27d92"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_controller.html#aa9e4a3c63544a55349a11c49f5a27d92">TurnController</a> (<a class="el" href="class_map_controller.html">MapController</a> *mc)</td></tr>
+<tr class="memdesc:aa9e4a3c63544a55349a11c49f5a27d92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creation Method taking two arguments.  <a href="#aa9e4a3c63544a55349a11c49f5a27d92">More...</a><br /></td></tr>
 <tr class="separator:aa9e4a3c63544a55349a11c49f5a27d92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0bf05ca649fe7b08a6fee6f7d0f4594"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0bf05ca649fe7b08a6fee6f7d0f4594"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>startGame</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_controller.html#af0bf05ca649fe7b08a6fee6f7d0f4594">startGame</a> ()</td></tr>
+<tr class="memdesc:af0bf05ca649fe7b08a6fee6f7d0f4594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the game, assigning <a class="el" href="class_player.html">Player</a>'s their initial Countries and. <br /></td></tr>
 <tr class="separator:af0bf05ca649fe7b08a6fee6f7d0f4594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accc451d934fd5983486182ecf2c5e86a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="accc451d934fd5983486182ecf2c5e86a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>endTurn</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_controller.html#accc451d934fd5983486182ecf2c5e86a">endTurn</a> ()</td></tr>
+<tr class="memdesc:accc451d934fd5983486182ecf2c5e86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the activePlayer turn, and begins the next players. <br /></td></tr>
 <tr class="separator:accc451d934fd5983486182ecf2c5e86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7facfb08df4a5bc9eef6af8eb4debc46"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7facfb08df4a5bc9eef6af8eb4debc46"></a>
-<a class="el" href="class_player.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getActivePlayer</b> ()</td></tr>
+<tr class="memitem:a7facfb08df4a5bc9eef6af8eb4debc46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_player.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_controller.html#a7facfb08df4a5bc9eef6af8eb4debc46">getActivePlayer</a> ()</td></tr>
+<tr class="memdesc:a7facfb08df4a5bc9eef6af8eb4debc46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access Method, used by outside classes to get identify the active player.  <a href="#a7facfb08df4a5bc9eef6af8eb4debc46">More...</a><br /></td></tr>
 <tr class="separator:a7facfb08df4a5bc9eef6af8eb4debc46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a0e38c2319d233f54fe0a5daaa5fef964"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e38c2319d233f54fe0a5daaa5fef964"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>phase</b></td></tr>
+<tr class="memitem:a0e38c2319d233f54fe0a5daaa5fef964"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_controller.html#a0e38c2319d233f54fe0a5daaa5fef964">phase</a></td></tr>
 <tr class="separator:a0e38c2319d233f54fe0a5daaa5fef964"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a074a5d90344a9690c31d768402acab94"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a074a5d90344a9690c31d768402acab94"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>activePlayer</b></td></tr>
+<tr class="memitem:a074a5d90344a9690c31d768402acab94"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_controller.html#a074a5d90344a9690c31d768402acab94">activePlayer</a></td></tr>
 <tr class="separator:a074a5d90344a9690c31d768402acab94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f25fffc1441f66610f2ba821ac77d36"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f25fffc1441f66610f2ba821ac77d36"></a>
-std::vector&lt; <a class="el" href="class_player.html">Player</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>playerList</b></td></tr>
+<tr class="memitem:a4f25fffc1441f66610f2ba821ac77d36"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_player.html">Player</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_controller.html#a4f25fffc1441f66610f2ba821ac77d36">playerList</a></td></tr>
 <tr class="separator:a4f25fffc1441f66610f2ba821ac77d36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84dd17d08a15c3028d19491c1926455d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84dd17d08a15c3028d19491c1926455d"></a>
-<a class="el" href="class_map_controller.html">MapController</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mapController</b></td></tr>
+<tr class="memitem:a84dd17d08a15c3028d19491c1926455d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_controller.html">MapController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_turn_controller.html#a84dd17d08a15c3028d19491c1926455d">mapController</a></td></tr>
 <tr class="separator:a84dd17d08a15c3028d19491c1926455d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_turn_controller.html">TurnController</a> is the class that controls which player is currently playing, and what phases the game is in. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aa9e4a3c63544a55349a11c49f5a27d92"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TurnController::TurnController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_map_controller.html">MapController</a> *&#160;</td>
+          <td class="paramname"><em>mc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creation Method taking two arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mc</td><td>an pointer argument used to access the <a class="el" href="class_map_controller.html">MapController</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a7facfb08df4a5bc9eef6af8eb4debc46"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_player.html">Player</a> * TurnController::getActivePlayer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Access Method, used by outside classes to get identify the active player. </p>
+<dl class="section return"><dt>Returns</dt><dd>a pointer to the active <a class="el" href="class_player.html">Player</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a074a5d90344a9690c31d768402acab94"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TurnController::activePlayer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>An integer storing the game's activePlayer's index </p>
+
+</div>
+</div>
+<a class="anchor" id="a84dd17d08a15c3028d19491c1926455d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_map_controller.html">MapController</a>* TurnController::mapController</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>An point to <a class="el" href="class_map_controller.html">MapController</a> used for access </p>
+
+</div>
+</div>
+<a class="anchor" id="a0e38c2319d233f54fe0a5daaa5fef964"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TurnController::phase</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>An integer storing the game's current phase </p>
+
+</div>
+</div>
+<a class="anchor" id="a4f25fffc1441f66610f2ba821ac77d36"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_player.html">Player</a>*&gt; TurnController::playerList</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A vector storing the game's Players </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="turncontroller_8h_source.html">turncontroller.h</a></li>
-<li>src/turncontroller.cpp</li>
+<li>C:/Users/Anthony/Documents/seng330/src/<a class="el" href="turncontroller_8h_source.html">turncontroller.h</a></li>
+<li>C:/Users/Anthony/Documents/seng330/src/turncontroller.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
