@@ -20,7 +20,7 @@ public:
     
   UIManager();
   
-//! Draw a drawable RenderWindow
+//! Action method, draw a drawable RenderWindow
 /*!
 \param target an pointer argument may be used to access the RenderWindow
 */
