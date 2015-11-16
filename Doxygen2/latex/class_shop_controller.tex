@@ -1,0 +1,92 @@
+\hypertarget{class_shop_controller}{}\section{Shop\+Controller Class Reference}
+\label{class_shop_controller}\index{Shop\+Controller@{Shop\+Controller}}
+
+
+{\ttfamily \#include $<$shopcontroller.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_shop_controller_a02945177e65fca47c9cddee1a7b3fdb6}{Shop\+Controller} (Turn\+Controller $\ast$tc)
+\item 
+void \hyperlink{class_shop_controller_a6f1f54172f914d26432bee8cf2f888ed}{place\+Unit} (Player $\ast$placer, Country $\ast$country)
+\begin{DoxyCompactList}\small\item\em Action method, to allow actived player to place unit. \end{DoxyCompactList}\item 
+int \hyperlink{class_shop_controller_acca2acc6d4aa2ad91db60f8461e74ad1}{get\+Player\+Income} (Player $\ast$player)
+\begin{DoxyCompactList}\small\item\em Access Method, to access the numbers of player\textquotesingle{}s income. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Map\+Controller $\ast$ \hyperlink{class_shop_controller_a44304a0e1de2f28cdcce75b9ae265a83}{map\+Controller}
+\item 
+Turn\+Controller $\ast$ \hyperlink{class_shop_controller_a3d14a370bf604d6f52f3a94749dd1913}{turn\+Controller}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_shop_controller}{Shop\+Controller} is the class that controls the numbers of units that can be placed of the actived player. It does the work for counting the numbers of placing the units of the actived player. After placing the units, the player should begin to act. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_shop_controller_a02945177e65fca47c9cddee1a7b3fdb6}{}\index{Shop\+Controller@{Shop\+Controller}!Shop\+Controller@{Shop\+Controller}}
+\index{Shop\+Controller@{Shop\+Controller}!Shop\+Controller@{Shop\+Controller}}
+\subsubsection[{Shop\+Controller(\+Turn\+Controller $\ast$tc)}]{\setlength{\rightskip}{0pt plus 5cm}Shop\+Controller\+::\+Shop\+Controller (
+\begin{DoxyParamCaption}
+\item[{Turn\+Controller $\ast$}]{tc}
+\end{DoxyParamCaption}
+)}\label{class_shop_controller_a02945177e65fca47c9cddee1a7b3fdb6}
+
+\begin{DoxyParams}{Parameters}
+{\em tc} & an pointer argument used to access the Turn\+Controller \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_shop_controller_acca2acc6d4aa2ad91db60f8461e74ad1}{}\index{Shop\+Controller@{Shop\+Controller}!get\+Player\+Income@{get\+Player\+Income}}
+\index{get\+Player\+Income@{get\+Player\+Income}!Shop\+Controller@{Shop\+Controller}}
+\subsubsection[{get\+Player\+Income(\+Player $\ast$player)}]{\setlength{\rightskip}{0pt plus 5cm}int Shop\+Controller\+::get\+Player\+Income (
+\begin{DoxyParamCaption}
+\item[{Player $\ast$}]{player}
+\end{DoxyParamCaption}
+)}\label{class_shop_controller_acca2acc6d4aa2ad91db60f8461e74ad1}
+
+
+Access Method, to access the numbers of player\textquotesingle{}s income. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & an pointer to the Player who are actived player \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_shop_controller_a6f1f54172f914d26432bee8cf2f888ed}{}\index{Shop\+Controller@{Shop\+Controller}!place\+Unit@{place\+Unit}}
+\index{place\+Unit@{place\+Unit}!Shop\+Controller@{Shop\+Controller}}
+\subsubsection[{place\+Unit(\+Player $\ast$placer, Country $\ast$country)}]{\setlength{\rightskip}{0pt plus 5cm}void Shop\+Controller\+::place\+Unit (
+\begin{DoxyParamCaption}
+\item[{Player $\ast$}]{placer, }
+\item[{Country $\ast$}]{country}
+\end{DoxyParamCaption}
+)}\label{class_shop_controller_a6f1f54172f914d26432bee8cf2f888ed}
+
+
+Action method, to allow actived player to place unit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em placer} & an pointer to the Player who are actived player and he can place units \\
+\hline
+{\em country} & an pointer to the actived player\textquotesingle{}s counrty \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_shop_controller_a44304a0e1de2f28cdcce75b9ae265a83}{}\index{Shop\+Controller@{Shop\+Controller}!map\+Controller@{map\+Controller}}
+\index{map\+Controller@{map\+Controller}!Shop\+Controller@{Shop\+Controller}}
+\subsubsection[{map\+Controller}]{\setlength{\rightskip}{0pt plus 5cm}Map\+Controller$\ast$ Shop\+Controller\+::map\+Controller}\label{class_shop_controller_a44304a0e1de2f28cdcce75b9ae265a83}
+A pointer to the map controller \hypertarget{class_shop_controller_a3d14a370bf604d6f52f3a94749dd1913}{}\index{Shop\+Controller@{Shop\+Controller}!turn\+Controller@{turn\+Controller}}
+\index{turn\+Controller@{turn\+Controller}!Shop\+Controller@{Shop\+Controller}}
+\subsubsection[{turn\+Controller}]{\setlength{\rightskip}{0pt plus 5cm}Turn\+Controller$\ast$ Shop\+Controller\+::turn\+Controller}\label{class_shop_controller_a3d14a370bf604d6f52f3a94749dd1913}
+A pointer to the turn controller 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Luke/\+Desktop/risk/shopcontroller.\+h\end{DoxyCompactItemize}
