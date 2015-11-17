@@ -137,12 +137,12 @@ bool MapController::loadMap() {
     std::string mapStr((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
     Json::Value root;
     Json::Reader reader;
-    Map* map = new Map();
+    delete map;
+    map = new Map();
 
-    // std::cout << "MAP STRING:\n";
-    // std::cout << mapStr;
     if(! reader.parse(mapStr,root)) {
-        std::cout  << "Failed to parse configuration\n" << reader.getFormattedErrorMessages();
+        // std::cout  << "Failed to parse configuration\n" << reader.getFormattedErrorMessages();
+        std::cout <<"Loading new game\n";
         return false;
     }
 
@@ -177,24 +177,11 @@ bool MapController::loadMap() {
             // }
             // country->mask = mask;
             int owner = countryListValue[j]["ownedBy"].asInt();
-            std::cout << owner << std::endl;
             if(owner > 0) {
                 turnController->playerList[owner-1]->countries.push_back(country);
             }
             countries.push_back(country);
             countryIndex.push_back(country);
-            /*int width;
-            int height;
-            int* mask;
-            int units;
-
-            int xPosition;
-            int yPosition;
-
-            int centerOffsetX;
-            int centerOffsetY;
-
-            std::vector<Country*> neighbours;*/
         }
 
         cont->countries = countries;
@@ -203,39 +190,15 @@ bool MapController::loadMap() {
     }
 
     for(int i = 0; i < continentListValue.size(); i++) {
-
         const Json::Value countryListValue = continentListValue[i]["countries"];
-
         for(int j = 0; j < countryListValue.size(); j++) {
-
             for(int k = 0; k < countryListValue[j]["neighbours"].size(); k++){
-
                 continents[i]->countries[j]->neighbours.push_back(countryIndex[countryListValue[j]["neighbours"][k].asInt()]);
             }
         }
     }
 
     map->continents = continents;
-
-//debug prints
-    for(int i = 0; i<map->continents.size();i++) {
-        for(int j = 0; j<map->continents[i]->countries.size();j++) {
-            Country* cur = map->continents[i]->countries[j];
-            std::cout << cur->units;
-        }
-        std::cout << std::endl;
-    }
-    for(int i = 0; i<turnController->playerList.size();i++) {
-        std::cout << "player " << i << ", num units owned:";
-        for(int j = 0; j<turnController->playerList[i]->countries.size();j++) {
-            Country* cur = turnController->playerList[i]->countries[j];
-            std::cout <<" "<< cur->units;
-        }
-        std::cout << std::endl;
-
-    }
-
-
 
     return true;
 
@@ -263,7 +226,7 @@ void MapController::saveMap() {
             Country* cur = map->continents[i]->countries[j];
             Json::Value country;
             Json::Value neighbours;
-            Json::Value mask;
+            // Json::Value mask;
             country["width"] = cur->getWidth();
             country["height"] = cur->getHeight();
             country["units"] = cur->getUnits();
@@ -281,7 +244,7 @@ void MapController::saveMap() {
                     }
                 }
             }
-            country["mask"] = mask;
+            // country["mask"] = mask;
             country["neighbours"] = neighbours;
             for(int k = 0;k<turnController->playerList.size();k++) {
                 if(std::find(turnController->playerList[k]->countries.begin(),turnController->playerList[k]->countries.end(),cur) != turnController->playerList[k]->countries.end()) {
@@ -303,7 +266,6 @@ void MapController::saveMap() {
     root["map"] = mapValue;
 
     Json::StyledWriter writer;
-    std::cout << writer.write(root);
 
     std::ofstream myfile;
     myfile.open ("savedConfig.json");

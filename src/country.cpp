@@ -1,7 +1,8 @@
 #include "country.h"
+#include <cstdio>
+#include <iostream>
 
 Country::Country() {
-	
 }
 
 Country::Country(int width, int height, int* mask, int xPosition, int yPosition, int centerOffsetX, int centerOffsetY)
