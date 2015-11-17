@@ -20,6 +20,22 @@ void TurnController::startGame() {
         mapController->map->getContinents()[2]->countries[2]->setUnits(1);
         mapController->update();
     } else {
+        for(int i = 0; i<mapController->map->continents.size();i++) {
+            for(int j = 0; j<mapController->map->continents[i]->countries.size();j++) {
+                Country* cur = mapController->map->continents[i]->countries[j];
+                std::cout << cur->units;
+            }
+            std::cout << std::endl;
+        }
+        for(int i = 0; i<playerList.size();i++) {
+            std::cout << "player " << i << ", num units owned: ";
+            for(int j = 0; j<playerList[i]->countries.size();j++) {
+                Country* cur = playerList[i]->countries[j];
+                std::cout << cur->units;
+            }
+            std::cout << std::endl;
+
+        }
         mapController->update();
     }
 

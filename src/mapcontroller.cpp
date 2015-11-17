@@ -217,6 +217,7 @@ bool MapController::loadMap() {
 
     map->continents = continents;
 
+//debug prints
     for(int i = 0; i<map->continents.size();i++) {
         for(int j = 0; j<map->continents[i]->countries.size();j++) {
             Country* cur = map->continents[i]->countries[j];
@@ -225,11 +226,12 @@ bool MapController::loadMap() {
         std::cout << std::endl;
     }
     for(int i = 0; i<turnController->playerList.size();i++) {
-        std::cout << "player " << i << std::endl;
+        std::cout << "player " << i << ", num units owned:";
         for(int j = 0; j<turnController->playerList[i]->countries.size();j++) {
             Country* cur = turnController->playerList[i]->countries[j];
-            std::cout << cur->units;
+            std::cout <<" "<< cur->units;
         }
+        std::cout << std::endl;
 
     }
 
