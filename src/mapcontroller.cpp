@@ -13,6 +13,7 @@ MapController::MapController() {
 
 void MapController::update()
 {
+#ifndef RISKTEST
     sf::Texture result;
     result.create(this->map->getWidth(), this->map->getHeight());
 
@@ -62,7 +63,7 @@ void MapController::update()
     delete[] pixels;
 
     this->mapTexture = result;
-
+#endif
 }
 
 sf::Texture MapController::getPixels()
