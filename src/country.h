@@ -3,11 +3,11 @@
 
 #include <vector>
 
-
+//! country is the smallest unit chunk of the map. They are given width,height, units, position , Are owned by players.
 class Country
 {
 public:
-    
+
   int width;
   int height;
   int* mask;
