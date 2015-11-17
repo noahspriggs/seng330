@@ -1,0 +1,44 @@
+=============================
+=== GYM SOFTWARE SCAFFOLD ===
+=============================
+
+REQUIRED TOOLS - WINDOWS
+=============================
+ - MinGW g++11
+ - Doxygen
+
+ REQUIRED TOOLS - Mac OS X
+=============================
+ - g++11
+ - SFML Clang Mac OS X framework files (in frameworks directory)
+ - Doxygen
+
+BUILDING - WINDOWS
+=============================
+Run the make.bat file, which will execute the compile command.
+To build in testing mode run maketest.bat.
+The executable risk.exe will be placed in bin\
+
+BUILDING - Mac OS X
+=============================
+Run the macmake.sh, which will execute the compile command.
+The executable risk.exe will be placed in bin/
+
+RUNNING - WINDOWS
+=============================
+Execute \bin\risk.exe
+
+RUNNING - OSX
+=============================
+Execute /bin/risk.exe
+
+RUNNING TESTS
+=============================
+Run bin\risk.exe (currently Windows only)
+
+DOCUMENTATION
+=============================
+
+To generate the documentation (if you have Doxygen installed) run
+doxygen config.doxygen in the project directory. The documentation can then
+be accessed by opening index.html in the newly created html directory.
