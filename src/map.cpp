@@ -10,6 +10,7 @@ Map::Map() {
 		}
 	}
 
+	//for the new continent on the board
     for(int y = 0; y < 3; y++) {
         Continent* rowContinent = new Continent();
 

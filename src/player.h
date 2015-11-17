@@ -8,7 +8,7 @@
 class Player {
 public:
   Player();
-
+//characteristics of the player
   bool ownsCountry(Country* country);
   void addCountry(Country* country);
   void removeCountry(Country* country);

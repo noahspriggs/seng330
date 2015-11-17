@@ -3,6 +3,8 @@
 
 #include "country.h"
 #include <vector>
+
+//! Continent is the class that adds a country 
 class Continent {
 public:
   Continent();

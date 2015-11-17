@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 
+//!initial income of the player
 Player::Player() {
     income = -1;
 }

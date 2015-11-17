@@ -4,7 +4,7 @@
 
 Country::Country() {
 }
-
+//setting the proportions of the countries for the game 
 Country::Country(int width, int height, int* mask, int xPosition, int yPosition, int centerOffsetX, int centerOffsetY)
 {
 	this->width = width;
@@ -20,6 +20,7 @@ Country::Country(int width, int height, int* mask, int xPosition, int yPosition,
     this->units = 0;
 }
 
+//adds a neighbour to an existing country
 void Country::addNeighbour(Country* neighbour)
 {
     this->neighbours.push_back(neighbour);
