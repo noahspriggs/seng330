@@ -3,7 +3,7 @@
 #include "uimanager.h"
 
 #ifndef RISKTEST
-
+//! this is the main file of the program, which is directing to other files in order for the game to work. 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(900, 900), "SENG 300 Group 6 - Risk");

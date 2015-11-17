@@ -7,11 +7,12 @@
 //! Continent is the class that adds a country 
 class Continent {
 public:
+
   Continent();
   
-  void addCountry(Country* country);
+  void addCountry(Country* country); /*!<this adds a new country>*/
 
-  std::vector<Country*> countries;
+  std::vector<Country*> countries; /*! <a vector storing the country>*/
 
 };
 #endif

@@ -26,7 +26,7 @@ void Country::addNeighbour(Country* neighbour)
     this->neighbours.push_back(neighbour);
 }
 
-std::vector<Country*> Country::getNeighbours()
+std::vector<Country*> Country::getNeighbours() /*!<a vector storing the country that's received>*/
 {
 	return this->neighbours;
 }
