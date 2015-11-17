@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['uimanager',['UIManager',['../class_u_i_manager.html',1,'']]]
+  ['map',['Map',['../class_map.html',1,'']]],
+  ['mapcontroller',['MapController',['../class_map_controller.html',1,'']]],
+  ['movecontroller',['MoveController',['../class_move_controller.html',1,'']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['movecontroller',['MoveController',['../class_move_controller.html#adf3b8449aa76810b59d7fc79b99c6317',1,'MoveController']]]
+  ['features',['Features',['../class_json_1_1_features.html#ad15a091cb61bb31323299a95970d2644',1,'Json::Features']]],
+  ['find',['find',['../class_json_1_1_value.html#a184bf49ec5da7ec31af089cf6f458f99',1,'Json::Value']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['player',['Player',['../class_player.html',1,'']]]
+  ['exception',['Exception',['../class_json_1_1_exception.html',1,'Json']]]
 ];

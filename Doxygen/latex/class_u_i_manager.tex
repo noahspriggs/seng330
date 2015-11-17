@@ -1,20 +1,66 @@
 \hypertarget{class_u_i_manager}{}\section{U\+I\+Manager Class Reference}
 \label{class_u_i_manager}\index{U\+I\+Manager@{U\+I\+Manager}}
+
+
+{\ttfamily \#include $<$uimanager.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_u_i_manager_a93440991c435364a9f5b45af839255cb}{}void {\bfseries draw} (sf\+::\+Render\+Window $\ast$target)\label{class_u_i_manager_a93440991c435364a9f5b45af839255cb}
+void \hyperlink{class_u_i_manager_a93440991c435364a9f5b45af839255cb}{draw} (sf\+::\+Render\+Window $\ast$target)
+\begin{DoxyCompactList}\small\item\em Action method, draw a drawable Render\+Window. \end{DoxyCompactList}\item 
+void \hyperlink{class_u_i_manager_a847b80aeee2eac2ab2680b0346b33ef1}{handle\+Click} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Action method, handles user input. \end{DoxyCompactList}\item 
+\hypertarget{class_u_i_manager_a247345c268729bc04b5d903a94ccdeaf}{}void \hyperlink{class_u_i_manager_a247345c268729bc04b5d903a94ccdeaf}{handle\+Esc} ()\label{class_u_i_manager_a247345c268729bc04b5d903a94ccdeaf}
 
-\item 
-\hypertarget{class_u_i_manager_a847b80aeee2eac2ab2680b0346b33ef1}{}void {\bfseries handle\+Click} (int x, int y)\label{class_u_i_manager_a847b80aeee2eac2ab2680b0346b33ef1}
-
-\item 
-\hypertarget{class_u_i_manager_a247345c268729bc04b5d903a94ccdeaf}{}void {\bfseries handle\+Esc} ()\label{class_u_i_manager_a247345c268729bc04b5d903a94ccdeaf}
+\begin{DoxyCompactList}\small\item\em Action method, handles user exit. After user click esc, the program will exit. \end{DoxyCompactList}\item 
+\hypertarget{class_u_i_manager_ab5b49ddee8666e69e30afb75bd2bc2f8}{}void {\bfseries save} ()\label{class_u_i_manager_ab5b49ddee8666e69e30afb75bd2bc2f8}
 
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+U\+I\+Manage is the class that controls all other controllers. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_u_i_manager_a93440991c435364a9f5b45af839255cb}{}\index{U\+I\+Manager@{U\+I\+Manager}!draw@{draw}}
+\index{draw@{draw}!U\+I\+Manager@{U\+I\+Manager}}
+\subsubsection[{draw(sf\+::\+Render\+Window $\ast$target)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+I\+Manager\+::draw (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Window $\ast$}]{target}
+\end{DoxyParamCaption}
+)}\label{class_u_i_manager_a93440991c435364a9f5b45af839255cb}
+
+
+Action method, draw a drawable Render\+Window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & an pointer argument may be used to access the Render\+Window \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_u_i_manager_a847b80aeee2eac2ab2680b0346b33ef1}{}\index{U\+I\+Manager@{U\+I\+Manager}!handle\+Click@{handle\+Click}}
+\index{handle\+Click@{handle\+Click}!U\+I\+Manager@{U\+I\+Manager}}
+\subsubsection[{handle\+Click(int x, int y)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+I\+Manager\+::handle\+Click (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\label{class_u_i_manager_a847b80aeee2eac2ab2680b0346b33ef1}
+
+
+Action method, handles user input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & an integer point on the x-\/axis of a user click \\
+\hline
+{\em y} & an integer point on the y-\/axis of a user click \\
+\hline
+\end{DoxyParams}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Anthony/\+Documents/seng330/src/uimanager.\+h\item 
-C\+:/\+Users/\+Anthony/\+Documents/seng330/src/uimanager.\+cpp\end{DoxyCompactItemize}
+/\+Users/\+Luke/seng330/src/uimanager.\+h\item 
+/\+Users/\+Luke/seng330/src/uimanager.\+cpp\end{DoxyCompactItemize}
