@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include "uimanager.h"
 
+#ifndef RISKTEST
+
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(900, 900), "SENG 300 Group 6 - Risk");
@@ -42,3 +44,5 @@ int main()
 
     return 0;
 }
+
+#endif
