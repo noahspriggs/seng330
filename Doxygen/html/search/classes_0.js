@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['continent',['Continent',['../class_continent.html',1,'']]],
-  ['country',['Country',['../class_country.html',1,'']]]
+  ['builtstyledstreamwriter',['BuiltStyledStreamWriter',['../struct_json_1_1_built_styled_stream_writer.html',1,'Json']]]
 ];

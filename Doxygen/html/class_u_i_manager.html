@@ -40,6 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -64,6 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -90,22 +93,90 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">UIManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="uimanager_8h_source.html">uimanager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a93440991c435364a9f5b45af839255cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93440991c435364a9f5b45af839255cb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (sf::RenderWindow *target)</td></tr>
+<tr class="memitem:a93440991c435364a9f5b45af839255cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_manager.html#a93440991c435364a9f5b45af839255cb">draw</a> (sf::RenderWindow *target)</td></tr>
+<tr class="memdesc:a93440991c435364a9f5b45af839255cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Action method, draw a drawable RenderWindow.  <a href="#a93440991c435364a9f5b45af839255cb">More...</a><br /></td></tr>
 <tr class="separator:a93440991c435364a9f5b45af839255cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a847b80aeee2eac2ab2680b0346b33ef1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a847b80aeee2eac2ab2680b0346b33ef1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>handleClick</b> (int x, int y)</td></tr>
+<tr class="memitem:a847b80aeee2eac2ab2680b0346b33ef1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_manager.html#a847b80aeee2eac2ab2680b0346b33ef1">handleClick</a> (int x, int y)</td></tr>
+<tr class="memdesc:a847b80aeee2eac2ab2680b0346b33ef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Action method, handles user input.  <a href="#a847b80aeee2eac2ab2680b0346b33ef1">More...</a><br /></td></tr>
 <tr class="separator:a847b80aeee2eac2ab2680b0346b33ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a247345c268729bc04b5d903a94ccdeaf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a247345c268729bc04b5d903a94ccdeaf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>handleEsc</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_manager.html#a247345c268729bc04b5d903a94ccdeaf">handleEsc</a> ()</td></tr>
+<tr class="memdesc:a247345c268729bc04b5d903a94ccdeaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Action method, handles user exit. After user click esc, the program will exit. <br /></td></tr>
 <tr class="separator:a247345c268729bc04b5d903a94ccdeaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b49ddee8666e69e30afb75bd2bc2f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5b49ddee8666e69e30afb75bd2bc2f8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> ()</td></tr>
+<tr class="separator:ab5b49ddee8666e69e30afb75bd2bc2f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>UIManage is the class that controls all other controllers. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a93440991c435364a9f5b45af839255cb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIManager::draw </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow *&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Action method, draw a drawable RenderWindow. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>an pointer argument may be used to access the RenderWindow </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a847b80aeee2eac2ab2680b0346b33ef1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIManager::handleClick </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Action method, handles user input. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>an integer point on the x-axis of a user click </td></tr>
+    <tr><td class="paramname">y</td><td>an integer point on the y-axis of a user click </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Anthony/Documents/seng330/src/<a class="el" href="uimanager_8h_source.html">uimanager.h</a></li>
-<li>C:/Users/Anthony/Documents/seng330/src/uimanager.cpp</li>
+<li>/Users/Luke/seng330/src/<a class="el" href="uimanager_8h_source.html">uimanager.h</a></li>
+<li>/Users/Luke/seng330/src/uimanager.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
