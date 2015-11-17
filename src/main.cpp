@@ -1,3 +1,4 @@
+
 #include <SFML/Graphics.hpp>
 #include "uimanager.h"
 
@@ -13,6 +14,7 @@ int main()
         {
             if (event.type == sf::Event::Closed)
             {
+                uimanager.save();
                 window.close();
             }
             else if(event.type == sf::Event::MouseButtonPressed)
@@ -22,22 +24,22 @@ int main()
                     uimanager.handleClick(event.mouseButton.x, event.mouseButton.y);
                 }
             }
-            else if(event.type == sf::Event::KeyPressed) 
+            else if(event.type == sf::Event::KeyPressed)
             {
-                if(event.key.code == sf::Keyboard::Escape) 
+                if(event.key.code == sf::Keyboard::Escape)
                 {
                     uimanager.handleEsc();
                 }
             }
-                
+
         }
 
         window.clear();
         uimanager.draw(&window);
         window.display();
-            
-        
-        
+
+
+
     }
 
     return 0;

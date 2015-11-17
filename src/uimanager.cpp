@@ -17,14 +17,14 @@ UIManager::UIManager() {
 
 }
 
-void UIManager::draw(sf::RenderWindow* target) 
+void UIManager::draw(sf::RenderWindow* target)
 {
-    
+
     sf::Sprite mapSprite;
     // this->mapController->update();
     sf::Texture tex = this->mapController->getMapTexture();
     mapSprite.setTexture(tex);
-    
+
     target->draw(mapSprite);
 
 	//draw the unit counts on the countries
@@ -54,14 +54,14 @@ void UIManager::draw(sf::RenderWindow* target)
 		}
 	}
 }
-  
+
 void UIManager::handleClick(int x, int y)
 {
     // mapController->update();
     //depending on the current turn phase, do different things on mouse click
     Player* activePlayer = turnController->getActivePlayer();
     if (turnController->phase == PLACE) {
-        
+
         shopController->placeUnit(turnController->getActivePlayer(),mapController->pointToCountry(x,y));
     }
     if (turnController->phase == ACTION ) {
@@ -74,4 +74,8 @@ void UIManager::handleClick(int x, int y)
 
 void UIManager::handleEsc() {
     turnController->endTurn();
+}
+
+void UIManager::save() {
+    mapController->saveMap();
 }

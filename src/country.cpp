@@ -1,5 +1,9 @@
 #include "country.h"
 
+Country::Country() {
+	
+}
+
 Country::Country(int width, int height, int* mask, int xPosition, int yPosition, int centerOffsetX, int centerOffsetY)
 {
 	this->width = width;
@@ -69,4 +73,3 @@ int Country::getCenterOffsetY()
 {
 	return this->centerOffsetY;
 }
-

@@ -4,22 +4,24 @@
 #include <vector>
 
 
-class Country 
+class Country
 {
+public:
+    
   int width;
   int height;
   int* mask;
   int units;
-  
+
   int xPosition;
   int yPosition;
-  
+
   int centerOffsetX;
   int centerOffsetY;
 
   std::vector<Country*> neighbours;
 
-public:
+  Country();
   Country(int width, int height, int* mask, int xPosition, int yPosition, int centerOffsetX, int centerOffsetY);
 
   void addNeighbour(Country* neighbour);
