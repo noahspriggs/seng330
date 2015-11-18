@@ -21,11 +21,11 @@ bool Player::ownsCountry(Country* country){
 
 	return false;
 }
-
+//new country is added to players collection of countries 
 void Player::addCountry(Country* country){
 	countries.push_back(country);
 }
-
+// a country is deleted from a player when they loose at a turn
 void Player::removeCountry(Country* country){
 	countries.erase(std::remove(countries.begin(), countries.end(), country), countries.end());
 }
