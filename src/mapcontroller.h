@@ -6,21 +6,27 @@
 #include <SFML/Graphics.hpp>
 
 
-class TurnController;
+class TurnController; /*! used to access the TurnController*/
 
+/*! MapController is the class that updates the */
 class MapController {
 public:
-  MapController();
 
-  void update();
-  sf::Texture getPixels();
+  MapController();
+  //! updates the game once it starts or is restarted
+    void update();
+	sf::Texture getPixels();
+  
+  //! call the country class and points to the country on the maps
   Country* pointToCountry(int x, int y);
+  
   sf::Texture getMapTexture();
   bool loadMap();
+  //! saved the map that is created for each news game
   void saveMap();
 
   sf::Texture mapTexture;
-  Map* map;
-  TurnController* turnController;
+  Map* map; /*!<an pointer to Map used for access>*/
+  TurnController* turnController; /*!<an pointer to TurnController used for access>*/
 };
 #endif

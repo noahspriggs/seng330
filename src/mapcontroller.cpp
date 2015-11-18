@@ -6,7 +6,7 @@
 #include "mapcontroller.h"
 #include "turncontroller.h"
 
-
+//initializes the map
 MapController::MapController() {
     this->map = new Map();
 }
@@ -118,6 +118,8 @@ sf::Texture MapController::getPixels()
 
     return result;
 }
+//points to another country which is positioned at the value which is calculated as following
+
 
 Country* MapController::pointToCountry(int x, int y)
 {
