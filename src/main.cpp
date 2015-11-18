@@ -16,11 +16,12 @@ int main()
         {
             if (event.type == sf::Event::Closed)
             {
-                uimanager.save();
-                window.close();
+                uimanager.save(); // saves any changed made in any of the classes in unimanager
+				window.close();
             }
             else if(event.type == sf::Event::MouseButtonPressed)
             {
+				//! if left clicked then uimanager will change as following otherwise it will not
                 if(event.mouseButton.button == sf::Mouse::Left)
                 {
                     uimanager.handleClick(event.mouseButton.x, event.mouseButton.y);
@@ -28,6 +29,7 @@ int main()
             }
             else if(event.type == sf::Event::KeyPressed)
             {
+				//! if keyboard is used then following occurs
                 if(event.key.code == sf::Keyboard::Escape)
                 {
                     uimanager.handleEsc();
