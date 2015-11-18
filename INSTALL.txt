@@ -40,5 +40,5 @@ DOCUMENTATION
 =============================
 
 To generate the documentation (if you have Doxygen installed) run
-doxygen config.doxygen in the project directory. The documentation can then
-be accessed by opening index.html in the newly created html directory.
+doxygen Doxyfile in the Doxygen directory. The documentation can then
+be accessed by opening index.html in the newly created Doxygen/html directory.

@@ -10,7 +10,7 @@ Map::Map() {
 		}
 	}
 
-	//for the new continent on the board
+	/*!<initializing and adding new continent and country to the map respectively by using the for loop>*/
     for(int y = 0; y < 3; y++) {
         Continent* rowContinent = new Continent();
 
@@ -45,17 +45,17 @@ Map::Map() {
 
 }
 
-std::vector<Continent*> Map::getContinents()
+std::vector<Continent*> Map::getContinents() /*!<a vector storing the continents and getting them from the map>*/
 {
     return this->continents;
 }
 
-int Map::getWidth()
+int Map::getWidth() // width of the map
 {
     return this->width;
 }
 
-int Map::getHeight()
+int Map::getHeight() // height of the map
 {
     return this->height;
 }
