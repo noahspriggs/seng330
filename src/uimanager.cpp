@@ -5,16 +5,15 @@
 
 UIManager::UIManager() {
     this->mapController = new MapController();
-    this->turnController = new TurnController(mapController);
+	this->turnController = new TurnController(mapController);
     this->mapController->turnController = this->turnController;
     this->shopController = new ShopController(turnController);
 	this->moveController = new MoveController(mapController,turnController);
+	turnController->startGame();
 
-    turnController->startGame();
 	if (!this->textFont.loadFromFile("caladea-regular.ttf")) {
 		std::cout << "Error loading font from caladea-regular.ttf" << std::endl;
 	}
-
 }
 
 void UIManager::draw(sf::RenderWindow* target)

@@ -23,7 +23,7 @@ public:
 
   Country();
   /*!<Following are the properties of a country on the map>*/
-  Country(int width, int height, int* mask, int xPosition, int yPosition, int centerOffsetX, int centerOffsetY);
+  Country(int xPosition, int yPosition);
 
   void addNeighbour(Country* neighbour); /*!<adding neighbour to an existing country>*/
   std::vector<Country*> getNeighbours(); /*!< A vector storing the country's new neighbour>*/

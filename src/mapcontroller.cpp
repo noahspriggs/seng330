@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdio>
-
+#include <time.h>
 #include <fstream>
 #include <streambuf>
 #include "mapcontroller.h"
@@ -8,61 +8,13 @@
 
 //initializes the map
 MapController::MapController() {
-    this->map = new Map();
+    this->map = new Map(time(NULL));
 }
 
 void MapController::update()
 {
 #ifndef RISKTEST
-    sf::Texture result;
-    result.create(this->map->getWidth(), this->map->getHeight());
-
-    sf::Uint8* pixels = new sf::Uint8[this->map->getWidth() * this->map->getHeight() * 4];
-
-    // fill with white
-    for(int y = 0; y < this->map->getHeight(); y++)
-    {
-        for(int x = 0; x < this->map->getWidth(); x++)
-        {
-            //draw highlighted countries
-            if (turnController->playerList[0]->ownsCountry(pointToCountry(x,y))) {
-                pixels[(y * this->map->getWidth() + x) * 4] = 0x00;
-                pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0x99;
-                pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x77;
-                pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
-            } else if (turnController->playerList[1]->ownsCountry(pointToCountry(x,y))) {
-                pixels[(y * this->map->getWidth() + x) * 4] = 0xBB;
-                pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0x33;
-                pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x33;
-                pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
-            }
-        }
-    }
-
-    // just draw the lines outlining the countries
-    for(int x = 1; x < 3; x++) {
-        for(int y = 0; y < this->map->getHeight(); y++) {
-            pixels[(y * this->map->getWidth() + x * 300) * 4] = 0xFF;
-            pixels[(y * this->map->getWidth() + x * 300) * 4 + 1] = 0x00;
-            pixels[(y * this->map->getWidth() + x * 300) * 4 + 2] = 0xFF;
-            pixels[(y * this->map->getWidth() + x * 300) * 4 + 3] = 0xFF;
-        }
-    }
-
-    for(int y = 1; y < 3; y++) {
-        for(int x = 0; x < this->map->getWidth(); x++) {
-            pixels[(y * 300 * this->map->getWidth() + x) * 4] = 0xFF;
-            pixels[(y * 300 * this->map->getWidth() + x) * 4 + 1] = 0x00;
-            pixels[(y * 300 * this->map->getWidth() + x) * 4 + 2] = 0xFF;
-            pixels[(y * 300 * this->map->getWidth() + x) * 4 + 3] = 0xFF;
-        }
-    }
-
-    result.update(pixels);
-
-    delete[] pixels;
-
-    this->mapTexture = result;
+    this->mapTexture = getPixels();
 #endif
 }
 
@@ -78,37 +30,42 @@ sf::Texture MapController::getPixels()
     {
         for(int x = 0; x < this->map->getWidth(); x++)
         {
-            //draw highlighted countries
-            if (turnController->playerList[0]->ownsCountry(pointToCountry(x,y))) {
-                pixels[(y * this->map->getWidth() + x) * 4] = 0x00;
-                pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0x99;
-                pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x77;
-                pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
-            } else if (turnController->playerList[1]->ownsCountry(pointToCountry(x,y))) {
-                pixels[(y * this->map->getWidth() + x) * 4] = 0xBB;
-                pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0x33;
-                pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x33;
-                pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
-            }
-        }
-    }
+			if (!this->map->isPointOnLand(x, y))
+			{
+				pixels[(y * this->map->getWidth() + x) * 4] = 0x2B;
+				pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0x00;
+				pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x94;
+				pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
+			}
+			else if (this->map->isPointBorder(x, y))
+			{
+				pixels[(y * this->map->getWidth() + x) * 4] = 0x00;
+				pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0x00;
+				pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x00;
+				pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
+			}
+			else if(turnController->playerList[0]->ownsCountry(pointToCountry(x, y)))
+			{
+				pixels[(y * this->map->getWidth() + x) * 4] = 0xFF;
+				pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0x66;
+				pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x00;
+				pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
+			}
+			else if (turnController->playerList[1]->ownsCountry(pointToCountry(x, y)))
+			{
+				pixels[(y * this->map->getWidth() + x) * 4] = 0xFF;
+				pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0xFF;
+				pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x00;
+				pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
+			}
+			else
+			{
+				pixels[(y * this->map->getWidth() + x) * 4] = 0x00;
+				pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0x94;
+				pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x2B;
+				pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
+			}
 
-    // just draw the lines outlining the countries
-    for(int x = 1; x < 3; x++) {
-        for(int y = 0; y < this->map->getHeight(); y++) {
-            pixels[(y * this->map->getWidth() + x * 300) * 4] = 0xFF;
-            pixels[(y * this->map->getWidth() + x * 300) * 4 + 1] = 0x00;
-            pixels[(y * this->map->getWidth() + x * 300) * 4 + 2] = 0xFF;
-            pixels[(y * this->map->getWidth() + x * 300) * 4 + 3] = 0xFF;
-        }
-    }
-
-    for(int y = 1; y < 3; y++) {
-        for(int x = 0; x < this->map->getWidth(); x++) {
-            pixels[(y * 300 * this->map->getWidth() + x) * 4] = 0xFF;
-            pixels[(y * 300 * this->map->getWidth() + x) * 4 + 1] = 0x00;
-            pixels[(y * 300 * this->map->getWidth() + x) * 4 + 2] = 0xFF;
-            pixels[(y * 300 * this->map->getWidth() + x) * 4 + 3] = 0xFF;
         }
     }
 
@@ -123,10 +80,7 @@ sf::Texture MapController::getPixels()
 
 Country* MapController::pointToCountry(int x, int y)
 {
-    int continent = y / 300;
-    int country = x / 300;
-
-    return this->map->getContinents()[continent]->countries[country];
+	return this->map->getCountryById(this->map->getCountryMap()[y * this->map->width + x]);
 }
 
 sf::Texture MapController::getMapTexture() {
@@ -134,13 +88,10 @@ sf::Texture MapController::getMapTexture() {
 }
 
 bool MapController::loadMap() {
-    std::vector<Country*> countryIndex;
     std::ifstream t("savedConfig.json");
     std::string mapStr((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
     Json::Value root;
     Json::Reader reader;
-    delete map;
-    map = new Map();
 
     if(! reader.parse(mapStr,root)) {
         // std::cout  << "Failed to parse configuration\n" << reader.getFormattedErrorMessages();
@@ -148,124 +99,67 @@ bool MapController::loadMap() {
         return false;
     }
 
-    const Json::Value mapValue = root["map"];
+	delete map;
 
-    //map has int height/width and continent vector
+	unsigned long long seed;
+	sscanf(root["seed"].asString().c_str(), "%llx", &seed);
 
-    map->height = mapValue["height"].asInt();
-    map->width = mapValue["width"].asInt();
+	map = new Map(seed);
+	turnController->activePlayer = root["turn"].asInt();
 
-    const Json::Value continentListValue = mapValue["continents"];
-    std::vector<Continent*> continents;
-    for(int i = 0; i < continentListValue.size(); i++) {
+	const Json::Value countryList = root["countries"];
+	for (int i = 0; i < countryList.size(); i++)
+	{
+		const Json::Value country = countryList[i];
 
-        const Json::Value countryListValue = continentListValue[i]["countries"];
-        std::vector<Country*> countries;
-        Continent* cont = new Continent();
-        for(int j = 0; j < countryListValue.size(); j++) {
-            Country* country = new Country();
-            country->height = countryListValue[j]["height"].asInt();
-            country->width = countryListValue[j]["width"].asInt();
-            country->units = countryListValue[j]["units"].asInt();
-
-            country->xPosition = countryListValue[j]["xPosition"].asInt();
-            country->yPosition = countryListValue[j]["yPosition"].asInt();
-            country->centerOffsetX = countryListValue[j]["centerOffsetX"].asInt();
-            country->centerOffsetY = countryListValue[j]["centerOffsetY"].asInt();
-
-            // int* mask = new int[countryListValue[j]["mask"].size()];
-            // for(int k = 0; k < mask.size(); k++) {
-                // mask[k] = countryListValue[j]["mask"][k].asInt();
-            // }
-            // country->mask = mask;
-            int owner = countryListValue[j]["ownedBy"].asInt();
-            if(owner > 0) {
-                turnController->playerList[owner-1]->countries.push_back(country);
-            }
-            countries.push_back(country);
-            countryIndex.push_back(country);
-        }
-
-        cont->countries = countries;
-        continents.push_back(cont);
-
-    }
-
-    for(int i = 0; i < continentListValue.size(); i++) {
-        const Json::Value countryListValue = continentListValue[i]["countries"];
-        for(int j = 0; j < countryListValue.size(); j++) {
-            for(int k = 0; k < countryListValue[j]["neighbours"].size(); k++){
-                continents[i]->countries[j]->neighbours.push_back(countryIndex[countryListValue[j]["neighbours"][k].asInt()]);
-            }
-        }
-    }
-
-    map->continents = continents;
+		if (country["owner"].asInt() > 0)
+		{
+			turnController->playerList[country["owner"].asInt() - 1]->addCountry(this->map->getCountryById(i));
+		}
+		this->map->getCountryById(i)->setUnits(country["units"].asInt());
+	}
 
     return true;
-
 }
 
 void MapController::saveMap() {
 
-    Json::Value root;
-    Json::Value mapValue;
-    mapValue["height"] = map->height;
-    mapValue["width"] = map->width;
+	Json::Value root;
 
-    std::vector<Country*> countries;
-    for(int i = 0; i < map->continents.size(); i++) {
-        for(int j = 0; j<map->continents[i]->countries.size();j++) {
-            countries.push_back(map->continents[i]->countries[j]);
-            }
-    }
+	std::stringstream ss;
+	ss << std::hex << this->map->getSeed();
+	root["seed"] = ss.str();
 
-    for(int i = 0; i < map->continents.size(); i++) {
-        Json::Value continentListValue;
+	for (int k = 0; k < turnController->playerList.size(); k++) {
+		if (turnController->playerList[k] == turnController->getActivePlayer())
+		{
+			root["turn"] = k;
+		}
+	}
 
-        Json::Value countryListValue;
-        for(int j = 0; j<map->continents[i]->countries.size();j++) {
-            Country* cur = map->continents[i]->countries[j];
-            Json::Value country;
-            Json::Value neighbours;
-            // Json::Value mask;
-            country["width"] = cur->getWidth();
-            country["height"] = cur->getHeight();
-            country["units"] = cur->getUnits();
-            country["xPosition"] = cur->getXPosition();
-            country["yPosition"] = cur->getYPosition();
-            country["centerOffsetX"] = cur->getCenterOffsetX();
-            country["centerOffsetY"] = cur->getCenterOffsetY();
-            // for(int k = 0;k<cur->mask.size();k++) {
-                // mask.append(cur->mask[k]);
-            // }
-            for(int k = 0;k<cur->neighbours.size();k++) {
-                for(int l = 0; l<countries.size();l++) {
-                    if(cur->getNeighbours()[k] == countries[l]) {
-                        neighbours.append(l);
-                    }
-                }
-            }
-            // country["mask"] = mask;
-            country["neighbours"] = neighbours;
-            for(int k = 0;k<turnController->playerList.size();k++) {
-                if(std::find(turnController->playerList[k]->countries.begin(),turnController->playerList[k]->countries.end(),cur) != turnController->playerList[k]->countries.end()) {
-                    country["ownedBy"] = k+1;
-                    break;
-                } else {
-                    country["ownedBy"] = 0;
+	Json::Value countryList;
 
-                }
-            }
+	for (int i = 0; i < this->map->getNumCountries(); i++)
+	{
+		Json::Value country;
+		for (int k = 0; k < turnController->playerList.size(); k++) 
+		{
+			if (std::find(turnController->playerList[k]->countries.begin(), turnController->playerList[k]->countries.end(), this->map->getCountryById(i)) != turnController->playerList[k]->countries.end()) 
+			{
+				country["owner"] = k + 1;
+				break;
+			}
+			else 
+			{
+				country["owner"] = 0;
+			}
+		}
 
-            countryListValue.append(country);
-        }
+		country["units"] = this->map->getCountryById(i)->getUnits();
+		countryList.append(country);
+	}
 
-        continentListValue["countries"] = countryListValue;
-        mapValue["continents"].append(continentListValue);
-
-    }
-    root["map"] = mapValue;
+	root["countries"] = countryList;
 
     Json::StyledWriter writer;
 

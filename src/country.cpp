@@ -5,17 +5,16 @@
 Country::Country() {
 }
 //setting the proportions of the countries for the game 
-Country::Country(int width, int height, int* mask, int xPosition, int yPosition, int centerOffsetX, int centerOffsetY)
+Country::Country(int xPosition, int yPosition)
 {
-	this->width = width;
-	this->height = height;
-	this->mask = mask;
+	this->width = 0;
+	this->height = 0;
 
 	this->xPosition = xPosition;
 	this->yPosition = yPosition;
 
-	this->centerOffsetX = centerOffsetX;
-	this->centerOffsetY = centerOffsetY;
+	this->centerOffsetX = -5;
+	this->centerOffsetY = -7;
 
     this->units = 0;
 }
