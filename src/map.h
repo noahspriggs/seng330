@@ -11,6 +11,7 @@ class Map {
 	double* currentFbm = 0;
 	int* countryMap = 0;
 	bool* isBorder = 0;
+	bool* isSealane = 0;
 	Country** countries = 0;
 
 public:
@@ -35,6 +36,9 @@ public:
   //! is the given point on a border between two countries
   //! could be in the water
   bool isPointBorder(int x, int y);
+
+  //! is this point on a sealane
+  bool isPointSealane(int x, int y);
 
   //! Returns the random seed of this map
   unsigned long long getSeed();

@@ -30,7 +30,14 @@ sf::Texture MapController::getPixels()
     {
         for(int x = 0; x < this->map->getWidth(); x++)
         {
-			if (!this->map->isPointOnLand(x, y))
+			if (this->map->isPointSealane(x, y))
+			{
+				pixels[(y * this->map->getWidth() + x) * 4] = 0x87;
+				pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0xCE;
+				pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0xFA;
+				pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
+			}
+			else if (!this->map->isPointOnLand(x, y))
 			{
 				pixels[(y * this->map->getWidth() + x) * 4] = 0x2B;
 				pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0x00;
