@@ -11,15 +11,16 @@ class TurnController; /*! used to access the TurnController*/
 /*! MapController is the class that updates the */
 class MapController {
 public:
+  std::vector<sf::Color> playerColours;
 
   MapController();
   //! updates the game once it starts or is restarted
     void update();
 	sf::Texture getPixels();
-  
+
   //! call the country class and points to the country on the maps
   Country* pointToCountry(int x, int y);
-  
+
   sf::Texture getMapTexture();
   bool loadMap();
   //! saved the map that is created for each news game

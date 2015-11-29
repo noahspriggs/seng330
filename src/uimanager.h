@@ -17,6 +17,7 @@ class UIManager {
   sf::Font textFont;/*!< Declare a new font */
 
 public:
+  int xincrease, yincrease;
 
   UIManager();
 

@@ -53,16 +53,16 @@ sf::Texture MapController::getPixels()
 			}
 			else if(turnController->playerList[0]->ownsCountry(pointToCountry(x, y)))
 			{
-				pixels[(y * this->map->getWidth() + x) * 4] = 0xFF;
-				pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0x66;
-				pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x00;
+				pixels[(y * this->map->getWidth() + x) * 4] = playerColours[0].r;
+				pixels[(y * this->map->getWidth() + x) * 4 + 1] = playerColours[0].g;
+				pixels[(y * this->map->getWidth() + x) * 4 + 2] = playerColours[0].b;
 				pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
 			}
 			else if (turnController->playerList[1]->ownsCountry(pointToCountry(x, y)))
 			{
-				pixels[(y * this->map->getWidth() + x) * 4] = 0xFF;
-				pixels[(y * this->map->getWidth() + x) * 4 + 1] = 0xFF;
-				pixels[(y * this->map->getWidth() + x) * 4 + 2] = 0x00;
+                pixels[(y * this->map->getWidth() + x) * 4] = playerColours[1].r;
+				pixels[(y * this->map->getWidth() + x) * 4 + 1] = playerColours[1].g;
+				pixels[(y * this->map->getWidth() + x) * 4 + 2] = playerColours[1].b;
 				pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
 			}
 			else
@@ -149,14 +149,14 @@ void MapController::saveMap() {
 	for (int i = 0; i < this->map->getNumCountries(); i++)
 	{
 		Json::Value country;
-		for (int k = 0; k < turnController->playerList.size(); k++) 
+		for (int k = 0; k < turnController->playerList.size(); k++)
 		{
-			if (std::find(turnController->playerList[k]->countries.begin(), turnController->playerList[k]->countries.end(), this->map->getCountryById(i)) != turnController->playerList[k]->countries.end()) 
+			if (std::find(turnController->playerList[k]->countries.begin(), turnController->playerList[k]->countries.end(), this->map->getCountryById(i)) != turnController->playerList[k]->countries.end())
 			{
 				country["owner"] = k + 1;
 				break;
 			}
-			else 
+			else
 			{
 				country["owner"] = 0;
 			}
