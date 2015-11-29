@@ -299,52 +299,55 @@ Map::Map(unsigned long long seed) {
 
 	// now sort the countries into continents
 	std::map<Country*, int> continentMap;
+	int numContinents = 0;
+
 	for (int i = 0; i < numCountries; i++)
 	{
-		continentMap[countries[i]] = i;
+		continentMap[countries[i]] = -1;
 	}
 
 	for (int i = 0; i < numCountries; i++)
 	{
-		Country* currentCountry = countries[i];
-		std::vector<Country*> neighbours = currentCountry->getNeighbours();
-
-		for (int i = 0; i < neighbours.size(); i++)
+		if (continentMap[countries[i]] == -1)
 		{
-			continentMap[neighbours[i]] = continentMap[currentCountry];
-		}
-	}
+			std::queue<Country*> bfsQueue;
+			bfsQueue.push(countries[i]);
+			continentMap[countries[i]] = numContinents;
 
-	// now count how many countries are in each continent
-	int continentCount[numCountries];
-
-	for (int i = 0; i < numCountries; i++)
-	{
-		continentCount[i] = 0;
-	}
-
-	for (int i = 0; i < numCountries; i++)
-	{
-		continentCount[continentMap[countries[i]]]++;
-	}
-
-	// and then create continent objects for those with more than none
-	for (int i = 0; i < numCountries; i++)
-	{
-		if (continentCount[i] > 0)
-		{
-			Continent* cont = new Continent();
-
-			for (int j = 0; j < numCountries; j++)
+			while (!bfsQueue.empty())
 			{
-				if (continentMap[countries[j]] == i)
+				Country* currentCountry = bfsQueue.front();
+				bfsQueue.pop();
+				
+				std::vector<Country*> neighbours = currentCountry->getNeighbours();
+				for (int j = 0; j < neighbours.size(); j++)
 				{
-					cont->addCountry(countries[j]);
+					if (continentMap[neighbours[j]] == -1)
+					{
+						continentMap[neighbours[j]] = numContinents;
+						bfsQueue.push(neighbours[j]);
+					}
 				}
 			}
 
-			this->continents.push_back(cont);
+			numContinents++;
 		}
+	}
+
+	// and then create continent objects 
+	for (int i = 0; i < numContinents; i++)
+	{
+		Continent* cont = new Continent();
+
+		for (int j = 0; j < numCountries; j++)
+		{
+			if (continentMap[countries[j]] == i)
+			{
+				cont->addCountry(countries[j]);
+			}
+		}
+
+		this->continents.push_back(cont);
 	}
 
 	// number the oceans
@@ -355,7 +358,7 @@ Map::Map(unsigned long long seed) {
 	{
 		for (int y = 0; y < height; y++)
 		{
-			oceans[x * width + y] = -1;
+			oceans[y * width + x] = -1;
 		}
 	}
 
@@ -363,8 +366,6 @@ Map::Map(unsigned long long seed) {
 	{
 		for (int y = 0; y < height; y++)
 		{
-			int currentCountry = countryMap[y * width + x];
-
 			if (!isPointOnLand(x, y) && oceans[y * width + x] == -1)
 			{
 				// flood fill this ocean
@@ -525,16 +526,18 @@ Map::Map(unsigned long long seed) {
 	}
 
 	isSealane = new bool[width * height];
-
-	int* aStarOcean = new int[width * height];
+	std::vector<int> linesStartX;
+	std::vector<int> linesStartY;
+	std::vector<int> linesEndX;
+	std::vector<int> linesEndY;
 
 	for (int i = 0; i < numOceans; i++)
 	{
 		// add sealanes if the ocean has 2 or more countries
-		for (int j = 0; j + 1 < oceanContinents[i].size(); j++)
+		for (int j = 0; j < oceanContinents[i].size() && oceanContinents[i].size() >= 2; j++)
 		{
 			int startContinent = oceanContinents[i][j];
-			int endContinent = oceanContinents[i][j + 1];
+			int endContinent = oceanContinents[i][(j + 1) % oceanContinents[i].size()];
 
 			// pick a random start and end for the sealane
 			int startCountry = rand() % countryContinentOceanNeighbours[i][startContinent].size();
@@ -543,130 +546,119 @@ Map::Map(unsigned long long seed) {
 			startCountry = countryContinentOceanNeighbours[i][startContinent][startCountry];
 			endCountry = countryContinentOceanNeighbours[i][endContinent][endCountry];
 
-			// set them as neighbours
+			// pick random points on their coastlines
+			int coastlineStartPoint = rand() % xCoastlines[startCountry][i].size();
+			int coastlineEndPoint = rand() % xCoastlines[endCountry][i].size();
+
+			int startX = xCoastlines[startCountry][i][coastlineStartPoint];
+			int startY = yCoastlines[startCountry][i][coastlineStartPoint];
+
+			int endX = xCoastlines[endCountry][i][coastlineEndPoint];
+			int endY = yCoastlines[endCountry][i][coastlineEndPoint];
+
+			// first go through the lines, and mark the points where they go on and off land
+
+			double length = sqrt((endX - startX) * (endX - startX) + (endY - startY) * (endY - startY));
+
+			double dX = (double)(endX - startX) / length;
+			double dY = (double)(endY - startY) / length;
+
+			double cX = startX;
+			double cY = startY;
+			int iCX = lround(cX);
+			int iCY = lround(cY);
+
+			for (int q = 0; q <= (int)ceil(length); q++)
+			{
+				if (isPointOnLand(iCX, iCY) && countryMap[iCY * width + iCX] != -1)
+				{
+					int otherCountry = countryMap[iCY * width + iCX];
+
+					if (otherCountry == startCountry)
+					{
+						startX = iCX;
+						startY = iCY;
+					}
+					else if (otherCountry == endCountry)
+					{
+						endX = iCX;
+						endY = iCY;
+						break;
+					}
+					else if (continentMap[countries[otherCountry]] == continentMap[countries[startCountry]])
+					{
+						startCountry = otherCountry;
+						startX = iCX;
+						startY = iCY;
+					}
+					else if (continentMap[countries[otherCountry]] == continentMap[countries[endCountry]])
+					{
+						endCountry = otherCountry;
+						endX = iCX;
+						endY = iCY;
+						break;
+					}
+					else
+					{
+						linesStartX.push_back(startX);
+						linesStartY.push_back(startY);
+						linesEndX.push_back(iCX);
+						linesEndY.push_back(iCY);
+
+						countries[startCountry]->addNeighbour(countries[otherCountry]);
+						countries[otherCountry]->addNeighbour(countries[startCountry]);
+
+						startCountry = otherCountry;
+						startX = iCX;
+						startY = iCY;
+					}
+				}
+
+				cX += dX;
+				cY += dY;
+				iCX = lround(cX);
+				iCY = lround(cY);
+			}
+
+			linesStartX.push_back(startX);
+			linesStartY.push_back(startY);
+			linesEndX.push_back(endX);
+			linesEndY.push_back(endY);
+
 			countries[startCountry]->addNeighbour(countries[endCountry]);
 			countries[endCountry]->addNeighbour(countries[startCountry]);
-
-			// loop until we have a path
-			//while (true)
-			//{
-				// pick random points on their coastlines
-				int coastlineStartPoint = rand() % xCoastlines[startCountry][i].size();
-				int coastlineEndPoint = rand() % xCoastlines[endCountry][i].size();
-
-				int startX = xCoastlines[startCountry][i][coastlineStartPoint];
-				int startY = yCoastlines[startCountry][i][coastlineStartPoint];
-
-				int endX = xCoastlines[endCountry][i][coastlineEndPoint];
-				int endY = yCoastlines[endCountry][i][coastlineEndPoint];
-
-				// mark them as sealanes
-				isSealane[startY * width + startX] = true;
-				isSealane[endY * width + endX] = true;
-
-				// draw a straight line
-				if (startX == endX)
-				{
-					for (int cY = startY; cY != endY; cY += (endY > startY ? 1 : -1))
-					{
-						isSealane[cY * width + startX] = true;
-					}
-				}
-				else
-				{
-					double slope = (double)(endY - startY) / (double)(endX - startX);
-					double cY = startY;
-
-					for (int cX = startX; cX != endX; cX += (endX > startX ? 1 : -1))
-					{
-						cY += slope * (endX > startX ? 1.0 : -1.0);
-						isSealane[lround(cY) * width + cX] = true;
-					}
-				}
-
-				
-
-				// reset the A*
-				//for (int p = 0; p < width * height; p++)
-				//{
-				//	aStarOcean[p] = -1;
-				//}
-
-				//// priority queue
-				//std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, EuclideanComparator> queue(EuclideanComparator(endX, endY));
-				//aStarOcean[startY * width + startX] = startY * width + startX;
-				//queue.push(std::pair<int, int>(startX, startY));
-
-				//std::cout << "doing an a* tx = " << endX << " ty= " << endY << std::endl;
-				//int iterationCount = 0;
-				//bool success = false;
-
-				//while (queue.size() > 0 && iterationCount < width * height)
-				//{
-				//	iterationCount++;
-				//	std::pair<int, int> current = queue.top();
-				//	queue.pop();
-
-				//	int cX = current.first;
-				//	int cY = current.second;
-
-				//	if (cX == endX && cY == endY)
-				//	{
-				//		success = true;
-				//		break;
-				//	}
-
-				//	if (cX - 1 >= 0 && !isPointOnLand(cX - 1, cY) && aStarOcean[cY * width + cX - 1] == -1)
-				//	{
-				//		aStarOcean[cY * width + cX - 1] = cY * width + cX;
-				//		queue.push(std::pair<int, int>(cX - 1, cY));
-				//	}
-				//	if (cX + 1 < width && !isPointOnLand(cX + 1, cY) && aStarOcean[cY * width + cX + 1] == -1)
-				//	{
-				//		aStarOcean[cY * width + cX + 1] = cY * width + cX;
-				//		queue.push(std::pair<int, int>(cX + 1, cY));
-				//	}
-				//	if (cY - 1 >= 0 && !isPointOnLand(cX, cY - 1) && aStarOcean[(cY - 1) * width + cX] == -1)
-				//	{
-				//		aStarOcean[(cY - 1) * width + cX] = cY * width + cX;
-				//		queue.push(std::pair<int, int>(cX, cY - 1));
-				//	}
-				//	if (cY + 1 < height && !isPointOnLand(cX, cY + 1) && aStarOcean[(cY + 1) * width + cX - 1] == -1)
-				//	{
-				//		aStarOcean[(cY + 1) * width + cX] = cY * width + cX;
-				//		queue.push(std::pair<int, int>(cX, cY + 1));
-				//	}
-				//}
-
-				//std::cout << "success = " << success << std::endl;
-				//if (success)
-				//{
-				//	// we found it, draw the trail
-				//	int currentX = endX;
-				//	int currentY = endY;
-
-				//	int itercount2 = 0;
-				//	while (currentX != startX && currentY != startY && itercount2 < width * height)
-				//	{
-				//		itercount2++;
-				//		isSealane[currentY * width + currentX] = true;
-
-				//		currentY = aStarOcean[currentY * width + currentX] / width;
-				//		currentX = aStarOcean[currentY * width + currentX] % width;
-				//	}
-
-				//	if (itercount2 == width * height)
-				//	{
-				//		continue;
-				//	}
-
-				//	break;
-				//}
-			//}
 		}
 	}
 
-	delete[] aStarOcean;
+	// draw the sealanes
+	for (int i = 0; i < linesStartX.size(); i++)
+	{
+		int startX = linesStartX[i];
+		int startY = linesStartY[i];
+		int endX = linesEndX[i];
+		int endY = linesEndY[i];
+
+		double length = sqrt((endX - startX) * (endX - startX) + (endY - startY) * (endY - startY));
+
+		double dX = (double)(endX - startX) / length;
+		double dY = (double)(endY - startY) / length;
+
+		double cX = startX;
+		double cY = startY;
+		int iCX = lround(cX);
+		int iCY = lround(cY);
+
+		for (int q = 0; q <= (int)ceil(length); q++)
+		{
+			isSealane[iCY * width + iCX] = true;
+
+			cX += dX;
+			cY += dY;
+			iCX = lround(cX);
+			iCY = lround(cY);
+		}
+	}
+
 	delete[] oceans;
 
 
