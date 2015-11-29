@@ -32,6 +32,10 @@ public:
 \param player an pointer to the Player who did the click
 */
   void handleClick(int x, int y, Player * player);
+
+
+  //! deSelects the currently selected Country
+  void deSelect();
   
  private: 
  
@@ -57,12 +61,7 @@ public:
 \param player an pointer to the Player who did the action
 */
 	void handleAttack(Country * country1, Country* country2, Player* player);
-	
-//! deSelects the currently selected Country
-	void deSelect();
- 
- 
- 
+
 	bool arrowsDisplayed; /*!< A bool indicating a country is selected */
 	Country * country;    /*!< A pointer to the selected country */
 

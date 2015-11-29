@@ -72,6 +72,7 @@ void UIManager::handleClick(int x, int y)
 }
 
 void UIManager::handleEsc() {
+	moveController->deSelect();
     turnController->endTurn();
 }
 
