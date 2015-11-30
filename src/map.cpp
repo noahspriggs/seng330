@@ -429,9 +429,15 @@ Map::Map(unsigned long long seed) {
 	}
 
 	// now mark the countires adjacent to each ocean
-	std::vector<int> oceanNeighbours[numOceans];
-	std::vector<int> xCoastlines[numCountries][numOceans];
-	std::vector<int> yCoastlines[numCountries][numOceans];
+	std::vector<int>* oceanNeighbours = new std::vector<int>[numOceans];
+	std::vector<int>** xCoastlines = new std::vector<int>*[numCountries];
+	std::vector<int>** yCoastlines = new std::vector<int>*[numCountries];
+
+	for (int i = 0; i < numCountries; i++)
+	{
+		xCoastlines[i] = new std::vector<int>[numOceans];
+		yCoastlines[i] = new std::vector<int>[numOceans];
+	}
 
 	for (int x = 0; x < width; x++)
 	{
@@ -505,8 +511,14 @@ Map::Map(unsigned long long seed) {
 	}
 
 	// get the continents adjacent to each ocean
-	std::vector<int> oceanContinents[numOceans];
-	std::vector<int> countryContinentOceanNeighbours[numOceans][this->continents.size()];
+	std::vector<int>* oceanContinents = new std::vector<int>[numOceans];
+	std::vector<int>** countryContinentOceanNeighbours = new std::vector<int>*[numOceans];
+
+	for (int i = 0; i < numOceans; i++)
+	{
+		countryContinentOceanNeighbours[i] = new std::vector<int>[this->continents.size()];
+	}
+
 	for (int i = 0; i < this->continents.size(); i++)
 	{
 		for (int j = 0; j < numOceans; j++)
@@ -663,6 +675,26 @@ Map::Map(unsigned long long seed) {
 
 	delete[] oceans;
 
+	delete[] oceanNeighbours;
+
+	for (int i = 0; i < numCountries; i++)
+	{
+		delete[] xCoastlines[i];
+		delete[] yCoastlines[i];
+	}
+
+
+	delete[] xCoastlines;
+	delete[] yCoastlines;
+
+	delete[] oceanContinents;
+
+	for (int i = 0; i < numOceans; i++)
+	{
+		delete[] countryContinentOceanNeighbours[i];
+	}
+
+	delete[] countryContinentOceanNeighbours;
 
 	// find all countries bordering the oceans
 
