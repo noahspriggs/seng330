@@ -35,7 +35,7 @@ void UIManager::draw(sf::RenderWindow* target)
 	sf::Text unitCountText;
 	unitCountText.setFont(this->textFont);
 	unitCountText.setCharacterSize(34);
-	unitCountText.setColor(sf::Color(0,14,173));
+	unitCountText.setColor(sf::Color(192,186,232));
 	unitCountText.setStyle(sf::Text::Bold);
 
     //draw unit counts on countries
