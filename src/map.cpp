@@ -30,6 +30,8 @@ public:
 
 
 static const int numCountries = 21;
+const double waterLevel = 0.5;
+const double shallowWaterLevel = 0.465;
 
 Map::Map(unsigned long long seed) {
 	const double minCountrySeparation = 50;
@@ -739,7 +741,6 @@ int Map::getHeight() // height of the map
 
 bool Map::isPointOnLand(int x, int y)
 {
-	const double waterLevel = 0.5;
 	return (this->currentFbm != NULL && this->currentFbm[y * width + x] > waterLevel);
 }
 
@@ -814,4 +815,9 @@ int Map::getNumCountries()
 bool Map::isPointSealane(int x, int y)
 {
 	return isSealane[y * width + x];
+}
+
+bool Map::isPointShallow(int x, int y)
+{
+	return (this->currentFbm != NULL && this->currentFbm[y * width + x] <= waterLevel && this->currentFbm[y * width + x] > shallowWaterLevel);
 }
