@@ -40,6 +40,9 @@ public:
   //! is this point on a sealane
   bool isPointSealane(int x, int y);
 
+  //! is this point in shallow water
+  bool isPointShallow(int x, int y);
+
   //! Returns the random seed of this map
   unsigned long long getSeed();
 
