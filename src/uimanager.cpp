@@ -5,8 +5,8 @@
 
 UIManager::UIManager() {
     this->mapController = new MapController();
-    this->mapController->playerColours.push_back(sf::Color(255,0,0));
-    this->mapController->playerColours.push_back(sf::Color(0,255,0));
+    this->mapController->playerColours.push_back(sf::Color(161,84,93));
+    this->mapController->playerColours.push_back(sf::Color(163,157,73));
 	this->turnController = new TurnController(mapController);
     this->mapController->turnController = this->turnController;
     this->shopController = new ShopController(turnController);
@@ -33,9 +33,9 @@ void UIManager::draw(sf::RenderWindow* target)
 	//we know where the origins are for the demo
 	sf::Text unitCountText;
 	unitCountText.setFont(this->textFont);
-	unitCountText.setCharacterSize(24);
-	unitCountText.setColor(sf::Color::Magenta);
-	unitCountText.setStyle(sf::Text::Regular);
+	unitCountText.setCharacterSize(34);
+	unitCountText.setColor(sf::Color(0,14,173));
+	unitCountText.setStyle(sf::Text::Bold);
 
     //draw unit counts on countries
 	for (int c = 0; c < this->mapController->map->getContinents().size(); c++) {
@@ -63,13 +63,14 @@ void UIManager::draw(sf::RenderWindow* target)
         sf::Color c = mapController->playerColours[i];
 
         if(turnController->activePlayer != i) {
-            c.r += 30;
-            c.g += 30;
-            c.b += 30;
+            int sub = 100;
+            c.r = (c.r-sub < 0) ? 0 : c.r-sub;
+            c.g = (c.g-sub < 0) ? 0 : c.g-sub;
+            c.b = (c.b-sub < 0) ? 0 : c.b-sub;
         }
         unitCountText.setColor(c);
         unitCountText.setCharacterSize(46);
-        int x = (i*(900+xincrease)+xincrease/2-80);
+        int x = (i*(900+xincrease)+xincrease/2-100);
         std::stringstream uistring;
         uistring << "Player " << i+1;
         unitCountText.setString(uistring.str().c_str());
@@ -77,19 +78,24 @@ void UIManager::draw(sf::RenderWindow* target)
         target->draw(unitCountText);
 
         unitCountText.setCharacterSize(33);
-        unitCountText.setPosition(x,yincrease+50);
+        unitCountText.setPosition(x,yincrease+80);
         std::stringstream incomestring;
-            incomestring << "Income: " << shopController->getPlayerIncome(turnController->playerList[i]);
+        incomestring << "Income: " << shopController->getPlayerIncome(turnController->playerList[i]);
 
 
         unitCountText.setString(incomestring.str().c_str());
 
         target->draw(unitCountText);
 
-        unitCountText.setPosition(x,yincrease+100);
+        unitCountText.setPosition(x,yincrease+120);
         std::stringstream unitstream;
         if(turnController->playerList[i]->income == -1) {
-            unitstream << "Stored Units: " << 0;
+            if ( turnController->activePlayer != i) {
+                unitstream << "Stored Units: " << 0;
+
+            } else {
+                unitstream << "Stored Units: " << shopController->getPlayerIncome(turnController->playerList[i]);
+            }
         } else {
             unitstream << "Stored Units: " << turnController->playerList[i]->income;
         }
