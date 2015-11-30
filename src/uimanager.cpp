@@ -11,6 +11,7 @@ UIManager::UIManager() {
     this->mapController->turnController = this->turnController;
     this->shopController = new ShopController(turnController);
 	this->moveController = new MoveController(mapController,turnController);
+    this->mapController->moveController = this->moveController;
 	turnController->startGame();
 
 	if (!this->textFont.loadFromFile("caladea-regular.ttf")) {

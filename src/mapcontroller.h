@@ -7,6 +7,7 @@
 
 
 class TurnController; /*! used to access the TurnController*/
+class MoveController; /*! used to access the MoveController*/
 
 /*! MapController is the class that updates the */
 class MapController {
@@ -29,5 +30,6 @@ public:
   sf::Texture mapTexture;
   Map* map; /*!<an pointer to Map used for access>*/
   TurnController* turnController; /*!<an pointer to TurnController used for access>*/
+  MoveController* moveController;
 };
 #endif

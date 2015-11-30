@@ -8,7 +8,7 @@ int main()
 {
     int xincrease = 600;
     int yincrease = 10;
-    sf::RenderWindow window(sf::VideoMode(900+xincrease, 900+yincrease), "SENG 300 Group 6 - Risk");
+    sf::RenderWindow window(sf::VideoMode(900+xincrease, 900+yincrease), "SENG 300 Group 6 - Risk", sf::Style::Close);
     UIManager uimanager;
     uimanager.xincrease = xincrease/2;
     uimanager.yincrease = yincrease/2;

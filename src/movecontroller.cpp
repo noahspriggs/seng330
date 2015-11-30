@@ -46,11 +46,12 @@ void MoveController::handleClick(int x, int y, Player * player)
 	}else if ( arrowsDisplayed && clicked != country){
 		std::cout << "handleMove" << std::endl;
 		handleMove(country, clicked, player);
-		
+
 	}else {
 		std::cout << "Select A country you own to Move your units" << std::endl;
 	}
 
+	mapController->update();
 
 
 
@@ -76,18 +77,19 @@ void MoveController::handleMove(Country * country1, Country* country2, Player * 
 		handleMerge(country1, country2);
 		// Deselect
 		deSelect();
-		
+		// country = country2;
+
 	} else {	//  player does not own 2
 
 		// Attack
 		handleAttack(country1, country2, player);
-		
+
 		// Deselect
 		deSelect();
+		// country = country2;
 	}
 
 	//THIS METHOD IS REALLY SLOW
-	mapController->update();
 }
 
 void MoveController::handleMerge(Country * country1, Country* country2){
@@ -142,5 +144,7 @@ void MoveController::deSelect(){
 		std::cout << "DE-Selected Country" << std::endl;
 		arrowsDisplayed = false;
 		country = NULL;
+		mapController->update();
+
 
 }

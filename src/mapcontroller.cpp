@@ -5,6 +5,7 @@
 #include <streambuf>
 #include "mapcontroller.h"
 #include "turncontroller.h"
+#include "movecontroller.h"
 
 //initializes the map
 MapController::MapController() {
@@ -53,17 +54,30 @@ sf::Texture MapController::getPixels()
 			}
 			else if(turnController->playerList[0]->ownsCountry(pointToCountry(x, y)))
 			{
+                int add = 60;
 				pixels[(y * this->map->getWidth() + x) * 4] = playerColours[0].r;
 				pixels[(y * this->map->getWidth() + x) * 4 + 1] = playerColours[0].g;
 				pixels[(y * this->map->getWidth() + x) * 4 + 2] = playerColours[0].b;
 				pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
+
+                if(pointToCountry(x, y) == moveController->country) {
+                    pixels[(y * this->map->getWidth() + x) * 4] = (playerColours[0].r+add > 255)? 255: playerColours[0].r+add;
+    				pixels[(y * this->map->getWidth() + x) * 4 + 1] = (playerColours[0].g+add > 255)? 255: playerColours[0].g+add;
+    				pixels[(y * this->map->getWidth() + x) * 4 + 2] = (playerColours[0].b+add > 255)? 255: playerColours[0].b+add;
+                }
 			}
 			else if (turnController->playerList[1]->ownsCountry(pointToCountry(x, y)))
 			{
+                int add = 60;
                 pixels[(y * this->map->getWidth() + x) * 4] = playerColours[1].r;
 				pixels[(y * this->map->getWidth() + x) * 4 + 1] = playerColours[1].g;
 				pixels[(y * this->map->getWidth() + x) * 4 + 2] = playerColours[1].b;
 				pixels[(y * this->map->getWidth() + x) * 4 + 3] = 0xFF;
+                if(pointToCountry(x, y) == moveController->country) {
+                    pixels[(y * this->map->getWidth() + x) * 4] = (playerColours[1].r+add > 255)? 255: playerColours[1].r+add;
+    				pixels[(y * this->map->getWidth() + x) * 4 + 1] = (playerColours[1].g+add > 255)? 255: playerColours[1].g+add;
+    				pixels[(y * this->map->getWidth() + x) * 4 + 2] = (playerColours[1].b+add > 255)? 255: playerColours[1].b+add;
+                }
 			}
 			else
 			{
